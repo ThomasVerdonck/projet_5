@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="<?php echo $css;?>"/>
-		<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css"/>
+		<link rel="stylesheet" type="text/css" href="public/fontawesome/css/all.min.css"/>
 		
 		<title><?= $title ?></title>		
 	</head>
@@ -17,48 +17,48 @@
 			<div class="row">
 				<header class="col">					
 					<nav id="menu" class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-						<a class="navbar-brand" href="index.php?action=accueil"><img src="public/images/logo5.png" alt=""></a>
+						<a class="navbar-brand" href="index.php?action=lastPosts"><img src="public/images/logo5.png" alt=""></a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-end">
 					        <ul class="nav nav-tabs">
 				            	<li class="nav-item">
-				            		<a class="nav-link active" href="index.php?action=accueil">Accueil</a>
+				            		<a class="nav-link active" href="index.php?action=lastPosts">Accueil</a>
 				            	</li>
 				            	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Films</a>
 					            	<div class="dropdown-menu">
-								      	<a class="dropdown-item" href="index.php?action=historique">Historique</a>
-								      	<a class="dropdown-item" href="index.php?action=science-fiction">Science-Fiction</a>
-								      	<a class="dropdown-item" href="index.php?action=drame">Drame</a>
-								      	<a class="dropdown-item" href="index.php?action=espionnage">Espionnage</a>
+								      	<a class="dropdown-item" href="index.php?action=films_historiques">Historique</a>
+								      	<a class="dropdown-item" href="index.php?action=films_science_fiction">Science-Fiction</a>
+								      	<a class="dropdown-item" href="index.php?action=films_drame">Drame</a>
+								      	<a class="dropdown-item" href="index.php?action=films_espionnage">Espionnage</a>
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Docus</a>
 					            	<div class="dropdown-menu">
-								      	<a class="dropdown-item" href="index.php?action=histoire">Histoire</a>
-								      	<a class="dropdown-item" href="index.php?action=sante">Santé</a>
-								      	<a class="dropdown-item" href="index.php?action=science">Science</a>
-								      	<a class="dropdown-item" href="index.php?action=mysteres">Mystères</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_histoire">Histoire</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_sante">Santé</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_science">Science</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_mysteres">Mystères</a>
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Séries</a>
 					            	<div class="dropdown-menu">								      	
-								      	<a class="dropdown-item" href="index.php?action=science-fiction">Science-Fiction</a>
-								      	<a class="dropdown-item" href="index.php?action=drame">Drame</a>
-								      	<a class="dropdown-item" href="index.php?action=espionnage">Espionnage</a>
+								      	<a class="dropdown-item" href="index.php?action=series_science_fiction">Science-Fiction</a>
+								      	<a class="dropdown-item" href="index.php?action=series_drame">Drame</a>
+								      	<a class="dropdown-item" href="index.php?action=series_espionnage">Espionnage</a>
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Livres</a>
 					            	<div class="dropdown-menu">
-								      	<a class="dropdown-item" href="index.php?action=histoire">Histoire</a>
-								      	<a class="dropdown-item" href="index.php?action=sociologie">Sociologie</a>
-								      	<a class="dropdown-item" href="index.php?action=sciences_interdites">Sciences interdites</a>
-								      	<a class="dropdown-item" href="index.php?action=sante">Santé</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_histoire">Histoire</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sociologie">Sociologie</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sante">Santé</a>
 								    </div>
 							  	</li>				            	
 				            	<?php 
@@ -96,6 +96,8 @@
 				</div>				
 			</div>
 		</div>
+		<!-- Fichiers JS -->
+        <script src="public/accueil.js"></script>
 		<!-- bibliothèques jQuery et Popper.js + bibliothèque JavaScript de Bootstrap -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

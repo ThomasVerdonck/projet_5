@@ -1,22 +1,25 @@
 <?php
 require_once('controleurs/front_controller.php');
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'accueil') {
-        require('vue/accueil.php');
-    }
-    elseif ($_GET['action'] == 'films') {
-        require('vue/films.php');
-    }
-    elseif ($_GET['action'] == 'historique') {
-        $genre = $_GET['action'];
-        films($genre);        
-    }     
+if (isset($_GET['action'])) {    
+    switch ($_GET['action']) {
+           case 'lastPosts':
+                lastPosts();
+                break;
+
+            case 'films_historiques':
+                $genre = $_GET['action'];
+                posts($genre);
+                break;
+           
+           default:
+               # code...
+               break;
+       }   
 }
 else {
-    require('vue/accueil.php');
+    lastPosts();
 }
 
 
 
-		

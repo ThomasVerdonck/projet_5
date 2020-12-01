@@ -14,12 +14,27 @@ function getBdd(){
 	return $bdd;
 }
 
-function getFilms($filmGenre)
+function getLastPosts()
 {
     $bdd = getBdd();
-    $result = $bdd->prepare('SELECT titre, descriptif FROM films WHERE genre=? ORDER BY date_creation DESC LIMIT 0, 5 ');
-    $result->execute(array($filmGenre));
+    $result = $bdd->query('SELECT articles.titre, articles.descriptif
+					 		FROM categories
+							LEFT JOIN articles
+							ON articles.id_categorie = categories.id ORDER BY date_creation DESC LIMIT 0, 3 ');
+	return $result;
+}
+
+function getPosts($genre)
+{
+    $bdd = getBdd();
+    $result = $bdd->prepare('SELECT articles.titre, articles.descriptif, sous_categories.nom_genre, articles.id_categorie 
+    						 FROM articles
+    						 LEFT JOIN sous_categories
+    						 ON sous_categories.id = articles.id_genre
+    						 WHERE nom_genre = ? ORDER BY date_creation ');
+    $result->execute(array($genre));
     return $result;
 
 }
+
 
