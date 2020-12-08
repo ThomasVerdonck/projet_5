@@ -19,9 +19,13 @@ header{
 
 /*Section accueil*/
 
-
-
-
+#contenu{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
 
 /*Pied de page*/
 #bg-footer{

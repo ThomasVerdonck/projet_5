@@ -29,10 +29,11 @@
 				            	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Films</a>
 					            	<div class="dropdown-menu">
-								      	<a class="dropdown-item" href="index.php?action=films_historiques">Historique</a>
+								      	<a class="dropdown-item" href="index.php?action=Historique">Historique</a>
 								      	<a class="dropdown-item" href="index.php?action=films_science_fiction">Science-Fiction</a>
 								      	<a class="dropdown-item" href="index.php?action=films_drame">Drame</a>
 								      	<a class="dropdown-item" href="index.php?action=films_espionnage">Espionnage</a>
+								      	<a class="dropdown-item" href="index.php?action=films_thriller">Thriller</a>
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
@@ -41,7 +42,8 @@
 								      	<a class="dropdown-item" href="index.php?action=docus_histoire">Histoire</a>
 								      	<a class="dropdown-item" href="index.php?action=docus_sante">Santé</a>
 								      	<a class="dropdown-item" href="index.php?action=docus_science">Science</a>
-								      	<a class="dropdown-item" href="index.php?action=docus_mysteres">Mystères</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_propagande">Propagande</a>
+								      	<a class="dropdown-item" href="index.php?action=docus_révélations">Révélations</a>
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
