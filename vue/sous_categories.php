@@ -14,7 +14,7 @@ $css = 'public/style2.css';?>
   			<div class="card-body">
 				<h5 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h5>
 	    		<p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
-	    		<a href="#" class="btn btn-primary">Voir plus</a>
+	    		<a href="index.php?action=showPost&id=<?php echo $donnees['articles.id']?>" class="btn btn-primary">Voir plus</a>
   			</div>
 		</div>
 	

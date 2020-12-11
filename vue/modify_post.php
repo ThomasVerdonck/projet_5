@@ -14,7 +14,7 @@ $css = 'public/style7.css';
 
     <section class="row">
     	<div class="col" class="border-primary">
-            <h2>Modifier un article</h2>   
+            <h2>Modifier un article</h2> 
             <form enctype="multipart/form-data" action="index.php?action=updatePost" method="post">
                 <div class="form-group">
                     <label for="title">Titre</label><br />
@@ -59,7 +59,7 @@ $css = 'public/style7.css';
                 </div>
                 <input type="hidden" name="id" value="<?php echo $modifPost['id']; ?>"/>           
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" id="submit" value="Ajouter"/>
+                    <input type="submit" class="btn btn-primary" id="submit" value="Mettre à jour"/>
                 </div>
             </form>
         </div>    

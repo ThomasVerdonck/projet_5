@@ -1,6 +1,6 @@
 <?php
-require('modele/ConnectionManager.php');
-require('modele/CommentManager.php');
+require_once('modele/ConnectionManager.php');
+require_once('modele/CommentManager.php');
 
 // Connexion
 function connectAdmin($pseudo, $pass){
@@ -71,10 +71,14 @@ function suppPost($id){
 function modifPost($id){
     $connectionManager = new ConnectionManager();
     $modifPost = $connectionManager->modifAdminPost($id);
+    //$categorie = $connectionManager->getCategorie();
+
     require('vue/modify_post.php');
 }
 
 function updatePost($id){
+    var_dump($_FILES);
+    die();
     if (isset($_FILES) && $_FILES['file']['error'] === 0) {
         $allowed = array("image/jpeg", "image/jpg", "image/gif", "image/png");
         $fileName = $_FILES['file']['name'];    
@@ -113,4 +117,16 @@ function updatePost($id){
             header('Location: index.php?action=listAllPostsAdmin');
         }
     }    
+}
+
+function reportedComment($id){
+    $commentManager = new CommentManager();
+    $commentManager->reportedCom($id);
+    header('Location: index.php?action=showPost&id=' . $_GET['postId']);    
+}
+
+function allReportedComments(){
+    $commentManager = new CommentManager();
+    $allReportedComments = $commentManager->getAllReportedComments();
+    require('vue/reportedComments.php');
 }

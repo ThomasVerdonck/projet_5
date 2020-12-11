@@ -11,6 +11,7 @@ class ConnectionManager extends Manager
         return $resultat;
     }
 
+    //CREER UN ARTICLE
     public function adminAddPost($title, $content, $cat, $sousCat, $fileName){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('INSERT INTO articles(titre, descriptif, id_categorie, id_sous_categorie, image, date_creation) 
@@ -19,6 +20,7 @@ class ConnectionManager extends Manager
         return $addPost;
     }
 
+    
     public function getAllPostsAdmin(){
 	    $bdd = $this->getBdd();
 	    $result = $bdd->query('SELECT articles.id, articles.titre, categories.nom_categorie, sous_categories.nom_sous_categorie 
@@ -31,6 +33,7 @@ class ConnectionManager extends Manager
 	    return $result;
 	}
 
+    // SUPPRIMER UN ARTICLE
     public function adminSuppPost($id){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('DELETE FROM articles WHERE id = ?');
@@ -39,17 +42,28 @@ class ConnectionManager extends Manager
         return $resultat;
     }
 
+//ACCEDER AU FORMULAIRE POUR MODIFIER UN POST
     public function modifAdminPost($id){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('SELECT *	FROM articles
-        							/*LEFT JOIN categories
+        							LEFT JOIN categories
 		    						ON categories.id = articles.id_categorie
 		    						LEFT JOIN sous_categories
-		    						ON sous_categories.id = articles.id_sous_categorie*/
-        							WHERE id = ?');
+		    						ON sous_categories.id = articles.id_sous_categorie
+        							WHERE articles.id = ?');
         $modifPost = $reponse->execute(array($id));
         $result = $reponse->fetch();
         return $result;
+    }
+
+    public function getCategorie(){
+        $bdd = $this->getBdd();
+        $reponse = $bdd->prepare('SELECT * FROM categories
+                                  UNION ALL
+                                  SELECT * FROM sous_categories');
+        $reponse->execute();
+        $resultat = $reponse->fetchAll();
+        return $resultat;
     }
 
     public function updateAdminPostWithPic($id, $fileName){

@@ -69,6 +69,65 @@ if (isset($_GET['action'])) {
             posts($sous_categorie, $categorie);
             break;
 
+        case 'series_science_fiction':
+            $sous_categorie = "Science-fiction";
+            $categorie = "Séries";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'series_drame':
+            $sous_categorie = "Drame";
+            $categorie = "Séries";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'series_espionnage':
+            $sous_categorie = "Espionnage";
+            $categorie = "Séries";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_histoire':
+            $sous_categorie = "Histoire";
+            $categorie = "Livres";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_sociologie':
+            $sous_categorie = "Sociologie";
+            $categorie = "Livres";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_sciences_interdites':
+            $sous_categorie = "Sciences interdites";
+            $categorie = "Livres";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_sante':
+            $sous_categorie = "Santé";
+            $categorie = "Livres";
+            posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_essais':
+            $sous_categorie = "Essais";
+            $categorie = "Livres";
+            posts($sous_categorie, $categorie);
+            break;
+
+
+        case 'showPost':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = intval($_GET['id']);
+                post($id);
+            }
+            else {
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+            break; 
+    
         case 'connection':
             require('vue/connection.php');
             break;
@@ -155,8 +214,27 @@ if (isset($_GET['action'])) {
 
         case 'updatePost':
             if(isset($_SESSION['pseudo'])){
-            $id = $_POST['id'];
-            updatePost($id);
+                $id = $_POST['id'];
+                updatePost($id);
+            }
+            else{
+                echo "Vous n'avez pas le droit d'accéder à cette page.";
+            }
+            break;
+
+        case 'getReportedComment':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                reportedComment($id);
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+            break;
+
+        case 'manageComments':
+            if(isset($_SESSION['pseudo'])){
+                allReportedComments();
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
@@ -167,6 +245,5 @@ if (isset($_GET['action'])) {
 else {
     lastPosts();
 }
-
 
 

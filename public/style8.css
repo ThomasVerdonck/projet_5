@@ -1,0 +1,98 @@
+body {
+    font-family: 'robotolight', Arial, sans-serif;
+    font-weight: 300;
+    color: rgb(51, 51, 51);
+    background-color: rgb(239, 240, 242);
+    margin: 0;
+}
+
+header{
+    text-transform: uppercase;
+}
+
+#menu li{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#chapter h2{
+    font-size: 1.5em;
+}
+
+#chapter h3{
+    font-size: 1em;
+    color: rgba(51, 51, 51, 0.5);
+}
+
+img{
+    width: 65%;
+}
+
+#content{
+    margin: 50px 20px 50px 20px;
+}
+
+#comments 
+{
+    margin-top: 50px;
+}
+
+#comments h2{
+    text-align: center;
+}
+
+.comment_author{
+    color: #508CC7;
+    font-weight: bold;
+}
+
+.comment_date{
+    font-size: 0.9em;
+    color: rgba(51, 51, 51, 0.5);
+    font-weight: 600;
+}
+
+button a{
+    color: white;
+}
+
+button a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+/*Formulaire Ajouter un commentaire*/
+#add_comment{
+    margin-top: 50px;
+}
+
+#add_comment h2, #form_title{
+    text-align: center;
+}    
+
+#form_title{
+    width: 90%;
+    margin: auto;
+    padding-left: 8px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 0.88em;
+}
+
+
+#submit{
+    text-transform: uppercase;
+}
+
+#submit:hover{
+    background-color: rgb(51, 51, 51);
+}
+
+/*Pied de page*/
+#bg-footer{
+    margin-top: 400px;
+}
+
+footer{
+    color: white;
+}

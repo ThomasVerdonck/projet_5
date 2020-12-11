@@ -61,6 +61,7 @@
 								      	<a class="dropdown-item" href="index.php?action=livres_sociologie">Sociologie</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sante">Santé</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_essais">Essais</a>
 								    </div>
 							  	</li>				            	
 				            	<?php 
