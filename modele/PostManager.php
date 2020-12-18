@@ -14,7 +14,7 @@ class PostManager extends Manager
 
 	public function getPosts($sous_categorie, $categorie){
 	    $bdd = $this->getBdd();
-	    $result = $bdd->prepare('SELECT articles.titre, articles.descriptif, articles.image, articles.id_categorie, categories.nom_categorie, sous_categories.nom_sous_categorie 
+	    $result = $bdd->prepare('SELECT articles.id, articles.titre, articles.descriptif, articles.image, articles.id_categorie, categories.nom_categorie, sous_categories.nom_sous_categorie 
 	    						 FROM articles
 	    						 LEFT JOIN categories
 	    						 ON categories.id = articles.id_categorie
@@ -28,7 +28,13 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('SELECT id, titre, descriptif, image FROM articles WHERE id = ?');
+        $reponse = $bdd->prepare('SELECT articles.id, articles.titre, articles.descriptif, articles.image, categories.nom_categorie, sous_categories.nom_sous_categorie
+        						 FROM articles 
+        						 LEFT JOIN categories
+	    						 ON categories.id = articles.id_categorie
+	    						 LEFT JOIN sous_categories
+	    						 ON sous_categories.id = articles.id_sous_categorie
+	    						 WHERE articles.id = ?');
         $reponse->execute(array($postId));
         $post = $reponse->fetch();
         return $post;

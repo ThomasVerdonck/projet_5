@@ -18,12 +18,11 @@ $css = 'public/style7.css';
             <form enctype="multipart/form-data" action="index.php?action=updatePost" method="post">
                 <div class="form-group">
                     <label for="title">Titre</label><br />
-                    <input type="text" class="form-control" name="title" value="<?php echo $modifPost['titre']; ?>"/>
+                    <input type="text" class="form-control" name="title" value="<?php echo $pageModif['titre']; ?>"/>
                 </div>
                 <div class="form-group">
                     <label for="categorie">ID catégorie</label><br />
-                    <select class="form-control" name="cat">
-                        <!--<option value="<?php echo $modifPost['id_categorie']; ?>"><?php echo $modifPost['nom_categorie']; ?></option>-->
+                    <select class="form-control" name="id_cat" value="id_categorie">
                         <option value="1">Films</option>
                         <option value="2">Docus</option>
                         <option value="3">Séries</option>
@@ -32,8 +31,7 @@ $css = 'public/style7.css';
                 </div>
                 <div class="form-group">
                     <label for="sous-categorie">ID sous-catégorie</label><br />
-                    <select class="form-control" name="sous_cat" value="id_sous_categorie">
-                        <!--<option value="<?php echo $modifPost['id_sous_categorie']; ?>"><?php echo $modifPost['nom_sous_categorie']; ?></option>-->
+                    <select class="form-control" name="id_sous_cat" value="id_sous_categorie">
                         <option value="1">Historique</option>
                         <option value="2">Science-fiction</option>
                         <option value="3">Drame</option>
@@ -50,14 +48,14 @@ $css = 'public/style7.css';
                 </div>
                 <div class="form-group">
                     <label for="file">Image</label><br />
-                    <img src="public/images/<?php echo $modifPost['image']; ?>" alt="<?php echo $modifPost['image']; ?>" class="img-fluid">
+                    <img src="public/images/<?php echo $pageModif['image']; ?>" alt="<?php echo $pageModif['image']; ?>" class="img-fluid">
                     <input type="file" class="form-control" name="file"/>                
                 </div>
                 <div class="form-group">
                     <label for="content">Contenu</label><br />
-                    <textarea class="form-control" id="mytextarea" name="content"><?php echo $modifPost['descriptif']; ?></textarea>
+                    <textarea class="form-control" id="mytextarea" name="content"><?php echo $pageModif['descriptif']; ?></textarea>
                 </div>
-                <input type="hidden" name="id" value="<?php echo $modifPost['id']; ?>"/>           
+                <input type="hidden" name="id" value="<?php echo $pageModif[0]; ?>"/>           
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" id="submit" value="Mettre à jour"/>
                 </div>

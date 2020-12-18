@@ -37,46 +37,40 @@ class ConnectionManager extends Manager
     public function adminSuppPost($id){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('DELETE FROM articles WHERE id = ?');
-        $reponse->execute(array($id));
-        $resultat = $reponse->fetch();
+        $resultat = $reponse->execute(array(intval($id)));
         return $resultat;
     }
 
 //ACCEDER AU FORMULAIRE POUR MODIFIER UN POST
-    public function modifAdminPost($id){
+    public function pageModifPost($id){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('SELECT *	FROM articles
+        $reponse = $bdd->prepare('SELECT articles.id, articles.titre, articles.descriptif, articles.image, categories.nom_categorie, sous_categories.nom_sous_categorie 
+                                    FROM articles
         							LEFT JOIN categories
 		    						ON categories.id = articles.id_categorie
 		    						LEFT JOIN sous_categories
 		    						ON sous_categories.id = articles.id_sous_categorie
         							WHERE articles.id = ?');
-        $modifPost = $reponse->execute(array($id));
+        $pageModif = $reponse->execute(array($id));
         $result = $reponse->fetch();
         return $result;
     }
-
-    public function getCategorie(){
-        $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('SELECT * FROM categories
-                                  UNION ALL
-                                  SELECT * FROM sous_categories');
-        $reponse->execute();
-        $resultat = $reponse->fetchAll();
-        return $resultat;
-    }
-
+    
+//METTRE A JOUR L'ARTICLE
     public function updateAdminPostWithPic($id, $fileName){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('UPDATE articles SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ?, image = ? WHERE id = ?');
-        $reponse->execute(array($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat'], $fileName, $id));
+        $reponse->execute(array($_POST['title'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $fileName, $id));
         return $reponse;
     }
 
     public function updateAdminPost($id){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('UPDATE articles SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
-        $reponse->execute(array($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat'], $id));
+        $reponse = $bdd->prepare('UPDATE articles
+                                 
+                                 SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
+        $reponse->execute(array($_POST['title'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
         return $reponse;
+        
     }
 }

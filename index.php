@@ -9,8 +9,8 @@ if (isset($_GET['action'])) {
             lastPosts();
             break;
 
-        case 'Historique':
-            $sous_categorie = $_GET['action'];
+        case 'films_historique':
+            $sous_categorie = "Historique";
             $categorie = "Films";
             posts($sous_categorie, $categorie);
             break;
@@ -197,11 +197,11 @@ if (isset($_GET['action'])) {
             }
             break;
 
-        case 'modifPost':
+        case 'pageModif':
             if(isset($_SESSION['pseudo'])){
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    $id = $_GET['id'];
-                    modifPost($id);
+                $id = intval($_GET['id']);                
+                if (isset($_GET['id']) && $_GET['id'] > 0) {                    
+                    pageModif($id);
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';
@@ -214,7 +214,8 @@ if (isset($_GET['action'])) {
 
         case 'updatePost':
             if(isset($_SESSION['pseudo'])){
-                $id = $_POST['id'];
+                
+                $id = intval($_POST['id']);
                 updatePost($id);
             }
             else{
@@ -235,6 +236,36 @@ if (isset($_GET['action'])) {
         case 'manageComments':
             if(isset($_SESSION['pseudo'])){
                 allReportedComments();
+            }
+            else{
+                echo "Vous n'avez pas le droit d'accéder à cette page.";
+            }
+            break;
+
+        case 'suppCom':
+            if(isset($_SESSION['pseudo'])){
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id = $_GET['id'];
+                    suppCom($id);
+                }
+                else{
+                    echo 'Erreur : aucun identifiant de billet envoyé';
+                }
+            }
+            else{
+                echo "Vous n'avez pas le droit d'accéder à cette page.";
+            }
+            break;
+
+        case 'letCom':
+            if(isset($_SESSION['pseudo'])){
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id = $_GET['id'];
+                    letCom($id);
+                }
+                else{
+                    echo 'Erreur : aucun identifiant de billet envoyé';
+                }
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";

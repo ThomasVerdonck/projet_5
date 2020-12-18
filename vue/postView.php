@@ -3,8 +3,8 @@ $css = 'public/style8.css'; ?>
 
 <?php ob_start(); ?>
 <div class="container py-5">
-    <h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
-    <h3>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h3>
+    <h2>Catégorie: <?php echo nl2br(htmlspecialchars($post['nom_categorie']));?></h2>
+    <h3>Genre: <?php echo nl2br(htmlspecialchars($post['nom_sous_categorie']));?></h3>
     <p><a href="index.php?action=lastPosts">Retour à l'accueil</a></p>
 
     <div class="row">
@@ -13,35 +13,33 @@ $css = 'public/style8.css'; ?>
                 <h2>
                     <?php echo htmlspecialchars($post['titre']); ?><br>
                 </h2>
-                <img class="card-img-top" src="public/images/<?php echo $post['image']; ?>" >
+                <img class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
                 <p id="content"><?php echo $post['descriptif'];?></p>
             </div>
         </div>      
 
         <section id="comments" class="col-12">
-            <?php 
-            if ($categorie = "Films") {
-                ?><p>Avez-vous vu ce film?</p>
+            <?php
+            if ($post['nom_categorie'] === "Films") {?>
+                <p>Avez-vous vu ce film?</p>
             <?php
             }
-            elseif ($categorie = "Docus") {
-                ?><p>Avez-vous vu ce documentaire?</p>
+            elseif ($post['nom_categorie'] === "Docus") {?>
+                <p>Avez-vous vu ce documentaire?</p>
             <?php
             }
-            elseif ($categorie = "Séries") {
-                ?><p>Avez-vous vu cette série?</p>
+            elseif ($post['nom_categorie'] === "Séries") {?>
+                <p>Avez-vous vu cette série?</p>
             <?php
             }
-            elseif ($categorie = "Livres") {
-                ?><p>Avez-vous lu ce livre?</p>
+            elseif ($post['nom_categorie'] === "Livres") {?>
+                <p>Avez-vous lu ce livre?</p>
             <?php
-            }
-            ?>
+            }?>
             <p>Qu'en avez-vous pensé?</p>
-            <h2>Laissez un commentaire</h2>
-            <?php
-            // Affichage des commentaires
-            while ($comment = $comments->fetch()){
+            <p>Laissez un commentaire</p>
+            
+            <?php while ($comment = $comments->fetch()){
             ?>
                 <div class="col-12">                        
                     <p class="comment_author"><?php echo htmlspecialchars($comment['auteur']); ?></p>

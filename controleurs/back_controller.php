@@ -68,19 +68,16 @@ function suppPost($id){
     allPostsAdmin();
 }
 
-function modifPost($id){
+function pageModif($id){
     $connectionManager = new ConnectionManager();
-    $modifPost = $connectionManager->modifAdminPost($id);
+    $pageModif = $connectionManager->pageModifPost($id);
     //$categorie = $connectionManager->getCategorie();
-
     require('vue/modify_post.php');
 }
 
-function updatePost($id){
-    var_dump($_FILES);
-    die();
+function updatePost($id){    
     if (isset($_FILES) && $_FILES['file']['error'] === 0) {
-        $allowed = array("image/jpeg", "image/jpg", "image/gif", "image/png");
+        $allowed = array("image/jpeg", "image/jpg", "image/gif", "image/png");        
         $fileName = $_FILES['file']['name'];    
         $fileType = $_FILES['file']['type'];
         $tmpName = $_FILES['file']['tmp_name'];
@@ -129,4 +126,16 @@ function allReportedComments(){
     $commentManager = new CommentManager();
     $allReportedComments = $commentManager->getAllReportedComments();
     require('vue/reportedComments.php');
+}
+
+function suppCom($id){
+    $commentManager = new CommentManager();
+    $suppCom = $commentManager->adminSuppCom($id);
+    header('Location: index.php?action=manageComments');
+}
+
+function letCom($id){
+    $commentManager = new CommentManager();
+    $letCom = $commentManager->adminLetCom($id);
+    header('Location: index.php?action=manageComments');
 }

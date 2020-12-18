@@ -18,4 +18,21 @@ class CommentManager extends Manager
         $allReportedComments = $reponse->execute();
         return $reponse;
     }
+    
+    // SUPPRIMER UN COMMENTAIRE SIGNALE
+    public function adminSuppCom($id){
+        $bdd = $this->getBdd();
+        $reponse = $bdd->prepare('DELETE FROM commentaires WHERE id = ?');
+        $reponse->execute(array($id));
+        $resultat = $reponse->fetch();
+        return $resultat;
+    }
+    
+    // REMETTRE LE COMMENTAIRE SIGNALE
+    public function adminLetCom($id){
+        $bdd = $this->getBdd();
+        $reponse = $bdd->prepare('UPDATE commentaires SET signalements = 0 WHERE id = ?');
+        $reponse->execute(array($id));
+        return $reponse;
+    }
 }

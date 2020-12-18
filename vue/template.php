@@ -29,7 +29,7 @@
 				            	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Films</a>
 					            	<div class="dropdown-menu">
-								      	<a class="dropdown-item" href="index.php?action=Historique">Historique</a>
+								      	<a class="dropdown-item" href="index.php?action=films_historique">Historique</a>
 								      	<a class="dropdown-item" href="index.php?action=films_science_fiction">Science-Fiction</a>
 								      	<a class="dropdown-item" href="index.php?action=films_drame">Drame</a>
 								      	<a class="dropdown-item" href="index.php?action=films_espionnage">Espionnage</a>

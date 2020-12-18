@@ -1,4 +1,4 @@
-<?php $title = 'Regarde et pense'; 
+<?php $title = $sous_categorie; 
 $css = 'public/style2.css';?>
 
 <?php ob_start(); ?>
@@ -10,11 +10,13 @@ $css = 'public/style2.css';?>
     while ($donnees = $posts->fetch()){
     ?>    				
         <div class="card mb-4 col-12">
-  			<img class="card-img-top col-3" src="public/images/<?php echo $donnees['image']; ?>" alt="<?php echo $donnees['image']; ?>">
+  			<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>">
+  				<img class="card-img-top col-3" src="public/images/<?php echo $donnees['image']; ?>" alt="<?php echo $donnees['image']; ?>">
+  			</a>
   			<div class="card-body">
 				<h5 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h5>
 	    		<p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
-	    		<a href="index.php?action=showPost&id=<?php echo $donnees['articles.id']?>" class="btn btn-primary">Voir plus</a>
+	    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Voir plus</a>
   			</div>
 		</div>
 	
