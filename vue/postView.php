@@ -39,7 +39,7 @@ $css = 'public/style8.css'; ?>
             <p>Qu'en avez-vous pensé?</p>
             <p>Laissez un commentaire</p>
             
-            <?php while ($comment = $comments->fetch()){
+            <?php while ($comment = $comments->fetch()){                
             ?>
                 <div class="col-12">                        
                     <p class="comment_author"><?php echo htmlspecialchars($comment['auteur']); ?></p>
@@ -53,7 +53,7 @@ $css = 'public/style8.css'; ?>
                         }
                         else{
                     ?>
-                    <button type="button" class="btn btn-danger" name="signal_comment"><a href="index.php?action=getReportedComment&id=<?php echo $comment['id'] ?>&postId=<?php echo $post['id'] ?>">Signaler ce commentaire</a>
+                    <button type="button" class="btn btn-danger" name="signal_comment"><a href="index.php?action=reportedComment&id=<?php echo $comment['id'] ?>&postId=<?php echo $post['id'] ?>">Signaler ce commentaire</a>
                     </button>
                     <?php
                         }

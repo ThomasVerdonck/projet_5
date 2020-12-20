@@ -1,6 +1,5 @@
 <?php
 require_once('modele/ConnectionManager.php');
-require_once('modele/CommentManager.php');
 
 // Connexion
 function connectAdmin($pseudo, $pass){
@@ -116,26 +115,3 @@ function updatePost($id){
     }    
 }
 
-function reportedComment($id){
-    $commentManager = new CommentManager();
-    $commentManager->reportedCom($id);
-    header('Location: index.php?action=showPost&id=' . $_GET['postId']);    
-}
-
-function allReportedComments(){
-    $commentManager = new CommentManager();
-    $allReportedComments = $commentManager->getAllReportedComments();
-    require('vue/reportedComments.php');
-}
-
-function suppCom($id){
-    $commentManager = new CommentManager();
-    $suppCom = $commentManager->adminSuppCom($id);
-    header('Location: index.php?action=manageComments');
-}
-
-function letCom($id){
-    $commentManager = new CommentManager();
-    $letCom = $commentManager->adminLetCom($id);
-    header('Location: index.php?action=manageComments');
-}

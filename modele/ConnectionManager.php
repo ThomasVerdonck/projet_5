@@ -29,7 +29,7 @@ class ConnectionManager extends Manager
 	    						 ON categories.id = articles.id_categorie
 	    						 LEFT JOIN sous_categories
 	    						 ON sous_categories.id = articles.id_sous_categorie    						 
-	    						 ORDER BY nom_categorie ');
+	    						 ORDER BY nom_categorie, nom_sous_categorie ');
 	    return $result;
 	}
 

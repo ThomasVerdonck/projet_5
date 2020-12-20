@@ -38,13 +38,5 @@ class PostManager extends Manager
         $reponse->execute(array($postId));
         $post = $reponse->fetch();
         return $post;
-    }
-
-    public function getComments($postId)
-    {
-        $bdd = $this->getBdd();
-        $comments = $bdd->prepare('SELECT id, id_post, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr, signalements FROM commentaires WHERE id_post = ? ORDER BY date_commentaire DESC');
-        $comments->execute(array($postId));
-        return $comments;
-    }
+    }    
 }

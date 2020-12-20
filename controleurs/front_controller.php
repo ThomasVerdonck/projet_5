@@ -1,5 +1,6 @@
 <?php
 require_once('modele/PostManager.php');
+require_once('modele/CommentManager.php');
 
 function lastPosts(){
 	$postManager = new PostManager();
@@ -15,8 +16,11 @@ function posts($sous_categorie, $categorie){
 
 function post($id){
     $postManager = new PostManager();
+    $commentManager = new CommentManager();
     $post = $postManager->getPost($id);
-    $comments = $postManager->getComments($id);
+    $comments = $commentManager->getComments($id);
     require('vue/postView.php');
 }
+
+
 

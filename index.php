@@ -2,6 +2,7 @@
 session_start();
 require_once('controleurs/front_controller.php');
 require_once('controleurs/back_controller.php');
+require_once('controleurs/comment_controller.php');
 
 if (isset($_GET['action'])) {    
     switch ($_GET['action']) {
@@ -126,7 +127,21 @@ if (isset($_GET['action'])) {
             else {
                 echo 'Erreur : aucun identifiant de billet envoyé';
             }
-            break; 
+            break;
+
+        case 'addComment':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                }
+                else {
+                    echo 'Erreur : tous les champs ne sont pas remplis !';
+                }
+            }
+            else {
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+            break;
     
         case 'connection':
             require('vue/connection.php');
@@ -222,8 +237,8 @@ if (isset($_GET['action'])) {
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
             }
             break;
-
-        case 'getReportedComment':
+//Un commentaire est signalé
+        case 'reportedComment':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $id = $_GET['id'];
                 reportedComment($id);
@@ -232,7 +247,7 @@ if (isset($_GET['action'])) {
                 echo 'Erreur : aucun identifiant de billet envoyé';
             }
             break;
-
+//Récupération des commentaires signalés dans le TdB
         case 'manageComments':
             if(isset($_SESSION['pseudo'])){
                 allReportedComments();

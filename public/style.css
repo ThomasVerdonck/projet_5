@@ -1,5 +1,4 @@
 
-
 body {
     font-family: 'robotolight', Arial, sans-serif;
     color: rgb(51, 51, 51);
@@ -8,13 +7,6 @@ body {
 
 header{
     text-transform: uppercase;
-}
-
-.navbar-light .navbar-brand{
-	color: #007bff;
-}
-.navbar-light .navbar-toggler{
-	color: #007bff !important;
 }
 
 /*Section accueil*/
