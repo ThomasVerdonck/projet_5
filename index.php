@@ -1,128 +1,148 @@
 <?php
 session_start();
-require_once('controleurs/front_controller.php');
-require_once('controleurs/back_controller.php');
-require_once('controleurs/comment_controller.php');
+require_once('controleurs/FrontController.php');
+require_once('controleurs/BackController.php');
+require_once('controleurs/CommentController.php');
 
 if (isset($_GET['action'])) {    
     switch ($_GET['action']) {
         case 'lastPosts':
-            lastPosts();
+            $frontController = new FrontController();
+            $frontController->lastPosts();
             break;
 
         case 'films_historique':
             $sous_categorie = "Historique";
             $categorie = "Films";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'films_science_fiction':
             $sous_categorie = "Science-fiction";
             $categorie = "Films";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'films_drame':
             $sous_categorie = "Drame";
             $categorie = "Films";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'films_espionnage':
             $sous_categorie = "Espionnage";
             $categorie = "Films";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'films_thriller':
             $sous_categorie = "Thriller";
             $categorie = "Films";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'docus_histoire':
             $sous_categorie = "Histoire";
             $categorie = "Docus";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'docus_sante':
             $sous_categorie = "Santé";
             $categorie = "Docus";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'docus_science':
             $sous_categorie = "Science";
             $categorie = "Docus";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'docus_propagande':
             $sous_categorie = "Propagande";
             $categorie = "Docus";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'docus_révélations':
             $sous_categorie = "Révélations";
             $categorie = "Docus";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'series_science_fiction':
             $sous_categorie = "Science-fiction";
             $categorie = "Séries";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'series_drame':
             $sous_categorie = "Drame";
             $categorie = "Séries";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'series_espionnage':
             $sous_categorie = "Espionnage";
             $categorie = "Séries";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_histoire':
             $sous_categorie = "Histoire";
             $categorie = "Livres";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_sociologie':
             $sous_categorie = "Sociologie";
             $categorie = "Livres";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_sciences_interdites':
             $sous_categorie = "Sciences interdites";
             $categorie = "Livres";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_sante':
             $sous_categorie = "Santé";
             $categorie = "Livres";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_essais':
             $sous_categorie = "Essais";
             $categorie = "Livres";
-            posts($sous_categorie, $categorie);
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
             break;
 
 
         case 'showPost':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $id = intval($_GET['id']);
-                post($id);
+                $frontController = new FrontController();
+                $frontController->post($id);
             }
             else {
                 echo 'Erreur : aucun identifiant de billet envoyé';
@@ -132,7 +152,8 @@ if (isset($_GET['action'])) {
         case 'addComment':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $commentController = new CommentController();
+                    $commentController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
                     echo 'Erreur : tous les champs ne sont pas remplis !';
@@ -148,7 +169,8 @@ if (isset($_GET['action'])) {
             break;
 
         case 'log_in':
-            connectAdmin($_POST['pseudo'], $_POST['password']);
+            $backController = new BackController();
+            $backController->connectAdmin($_POST['pseudo'], $_POST['password']);
             break;
 
         case 'dashboard':
@@ -161,7 +183,8 @@ if (isset($_GET['action'])) {
             break;
 
         case 'disconnect':
-            disconnect();
+            $backController = new BackController();
+            $backController->disconnect();
             break;
 
         case 'create_post':
@@ -177,7 +200,8 @@ if (isset($_GET['action'])) {
             if(isset($_SESSION['pseudo'])){       
                 if (!empty($_POST['title']) && !empty($_POST['content']) 
                     && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
-                    addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
+                    $backController = new BackController();
+                    $backController->addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
                 }
                 else {
                         echo 'Erreur : tous les champs ne sont pas remplis !';
@@ -190,7 +214,8 @@ if (isset($_GET['action'])) {
 
         case 'listAllPostsAdmin':
             if(isset($_SESSION['pseudo'])){
-                allPostsAdmin();
+                $backController = new BackController();
+                $backController->allPostsAdmin();
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
@@ -201,7 +226,8 @@ if (isset($_GET['action'])) {
             if(isset($_SESSION['pseudo'])){
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $id = $_GET['id'];
-                    suppPost($id);
+                    $backController = new BackController();
+                    $backController->suppPost($id);
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';
@@ -216,7 +242,8 @@ if (isset($_GET['action'])) {
             if(isset($_SESSION['pseudo'])){
                 $id = intval($_GET['id']);                
                 if (isset($_GET['id']) && $_GET['id'] > 0) {                    
-                    pageModif($id);
+                    $backController = new BackController();
+                    $backController->pageModif($id);
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';
@@ -228,10 +255,10 @@ if (isset($_GET['action'])) {
             break;
 
         case 'updatePost':
-            if(isset($_SESSION['pseudo'])){
-                
+            if(isset($_SESSION['pseudo'])){                
                 $id = intval($_POST['id']);
-                updatePost($id);
+                $backController = new BackController();
+                $backController->updatePost($id);
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
@@ -241,7 +268,8 @@ if (isset($_GET['action'])) {
         case 'reportedComment':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $id = $_GET['id'];
-                reportedComment($id);
+                $commentController = new CommentController();
+                $commentController->reportedComment($id);
             }
             else{
                 echo 'Erreur : aucun identifiant de billet envoyé';
@@ -250,7 +278,8 @@ if (isset($_GET['action'])) {
 //Récupération des commentaires signalés dans le TdB
         case 'manageComments':
             if(isset($_SESSION['pseudo'])){
-                allReportedComments();
+                $commentController = new CommentController();
+                $commentController->allReportedComments();
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
@@ -261,7 +290,8 @@ if (isset($_GET['action'])) {
             if(isset($_SESSION['pseudo'])){
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $id = $_GET['id'];
-                    suppCom($id);
+                    $commentController = new CommentController();
+                    $commentController->suppCom($id);
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';
@@ -276,7 +306,8 @@ if (isset($_GET['action'])) {
             if(isset($_SESSION['pseudo'])){
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $id = $_GET['id'];
-                    letCom($id);
+                    $commentController = new CommentController();
+                    $commentController->letCom($id);
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';

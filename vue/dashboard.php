@@ -12,7 +12,7 @@ $css = 'public/style4.css';
 	        <ul id="liste_admin">
 	        	<li><a href="index.php?action=create_post">Créer un article</a></li>
 	        	<li><a href="index.php?action=listAllPostsAdmin">Voir tous les articles</a></li>
-	        	<li><a href="index.php?action=manageComments">Gestion des commentaires</a></li>
+	        	<li><a href="index.php?action=manageComments">Commentaires signalés</a></li>
 	        </ul>		           	
 	    </nav>
 	</div>
