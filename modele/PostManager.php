@@ -20,8 +20,14 @@ class PostManager extends Manager
 	    						 ON categories.id = articles.id_categorie
 	    						 LEFT JOIN sous_categories
 	    						 ON sous_categories.id = articles.id_sous_categorie    						 
-	    						 WHERE nom_sous_categorie = ? AND nom_categorie = ? ORDER BY titre ');
+	    						 WHERE nom_sous_categorie = ? AND nom_categorie = ? ORDER BY titre ');//DESC LIMIT '.$firstPost.','.$nbPostsPage.'
 	    $result->execute(array($sous_categorie, $categorie));
+	    return $result;
+	}
+
+	public function nbPosts(){
+		$bdd = $this->getBdd();
+	    $result = $bdd->query('SELECT COUNT(*) FROM articles');
 	    return $result;
 	}
 

@@ -27,7 +27,7 @@ $css = 'public/style6.css';
 						<td><?php echo htmlspecialchars($donnees['titre']); ?></td>
 						<td><?php echo htmlspecialchars($donnees['nom_categorie']); ?></td>
 						<td><?php echo htmlspecialchars($donnees['nom_sous_categorie']); ?></td>
-						<td><a class="btn btn-primary" href="<?php echo "index.php?action=suppPost&id=".$donnees['id']?>">Supprimer</a></td>
+						<td><a class="btnSupp btn btn-primary" id="<?php echo $donnees['id'];?>">Supprimer</a></td>
 						<td><a class="btn btn-primary" href="<?php echo "index.php?action=pageModif&id=".$donnees['id']?>">Modifier</a></td>
 					</tr>
 				<?php

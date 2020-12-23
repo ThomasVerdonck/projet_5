@@ -21,6 +21,7 @@ $css = 'public/style5.css';
                     <label for="title">Titre*</label><br />
                     <input type="text" class="form-control" name="title" required/>
                 </div>
+                
                 <div class="form-group">
                     <label for="categorie">ID catégorie*</label><br />
                     <select class="form-control" name="cat">
@@ -45,6 +46,7 @@ $css = 'public/style5.css';
                         <option value="10">Sciences interdites</option>
                         <option value="11">Thriller</option>
                         <option value="12">Révélations</option>
+                        <option value="12">Essais</option>
                     </select>
                 </div>
                 <div class="form-group">

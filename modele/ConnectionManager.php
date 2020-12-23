@@ -29,7 +29,7 @@ class ConnectionManager extends Manager
 	    						 ON categories.id = articles.id_categorie
 	    						 LEFT JOIN sous_categories
 	    						 ON sous_categories.id = articles.id_sous_categorie    						 
-	    						 ORDER BY nom_categorie, nom_sous_categorie ');
+	    						 ORDER BY nom_categorie, nom_sous_categorie, titre ');
 	    return $result;
 	}
 
@@ -66,9 +66,7 @@ class ConnectionManager extends Manager
 
     public function updateAdminPost($id){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('UPDATE articles
-                                 
-                                 SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
+        $reponse = $bdd->prepare('UPDATE articles SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
         $reponse->execute(array($_POST['title'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
         return $reponse;
         

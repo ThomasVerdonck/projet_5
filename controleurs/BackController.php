@@ -71,6 +71,7 @@ class BackController{
     public function pageModif($id){
         $connectionManager = new ConnectionManager();
         $pageModif = $connectionManager->pageModifPost($id);
+
         //$categorie = $connectionManager->getCategorie();
         require('vue/modify_post.php');
     }
@@ -106,7 +107,7 @@ class BackController{
         }
         elseif (isset($_FILES) && $_FILES['file']['error'] === 4) {
             $connectionManager = new ConnectionManager();
-            $updatePost = $connectionManager->updateAdminPost($id);
+            $updatePost = $connectionManager->updateAdminPost($id);                        
             if ($updatePost === false) {
                     die('Impossible de mettre à jour l\'article !');
             }

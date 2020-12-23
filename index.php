@@ -137,6 +137,13 @@ if (isset($_GET['action'])) {
             $frontController->posts($sous_categorie, $categorie);
             break;
 
+        case 'livres_révélations':
+            $sous_categorie = "Révélations";
+            $categorie = "Livres";
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
+            break;
+
 
         case 'showPost':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -197,9 +204,8 @@ if (isset($_GET['action'])) {
             break;
 
         case 'addPost':
-            if(isset($_SESSION['pseudo'])){       
-                if (!empty($_POST['title']) && !empty($_POST['content']) 
-                    && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
+            if(isset($_SESSION['pseudo'])){
+                if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
                     $backController = new BackController();
                     $backController->addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
                 }
@@ -225,6 +231,7 @@ if (isset($_GET['action'])) {
         case 'suppPost':
             if(isset($_SESSION['pseudo'])){
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    //alert('Etes-vous sûr de vouloir supprimer ce post?');
                     $id = $_GET['id'];
                     $backController = new BackController();
                     $backController->suppPost($id);
@@ -244,6 +251,7 @@ if (isset($_GET['action'])) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {                    
                     $backController = new BackController();
                     $backController->pageModif($id);
+
                 }
                 else{
                     echo 'Erreur : aucun identifiant de billet envoyé';
@@ -320,7 +328,8 @@ if (isset($_GET['action'])) {
     }   
 }
 else {
-    lastPosts();
+    $frontController = new FrontController();
+    $frontController->lastPosts();
 }
 
 

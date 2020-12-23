@@ -23,9 +23,14 @@ header{
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-line-clamp: 3; /* number of lines to show */
    -webkit-box-orient: vertical;
 }
+
+h2, h4{
+  text-align: center;
+}
+
 
 /*Pied de page*/
 #bg-footer{

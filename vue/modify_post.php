@@ -20,6 +20,7 @@ $css = 'public/style7.css';
                     <label for="title">Titre</label><br />
                     <input type="text" class="form-control" name="title" value="<?php echo $pageModif['titre']; ?>"/>
                 </div>
+                
                 <div class="form-group">
                     <label for="categorie">ID catégorie</label><br />
                     <select class="form-control" name="id_cat" value="id_categorie">
@@ -44,6 +45,7 @@ $css = 'public/style7.css';
                         <option value="10">Sciences interdites</option>
                         <option value="11">Thriller</option>
                         <option value="12">Révélations</option>
+                        <option value="13">Essais</option>
                     </select>
                 </div>
                 <div class="form-group">
