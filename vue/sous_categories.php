@@ -25,12 +25,17 @@ $css = 'public/style2.css';?>
 			      </div>
 			    </div>
 			  </div>
-			</div>			
+			</div>		
 		<?php
 		}    
-		$posts->closeCursor();
+		$posts->closeCursor();		
 		?>	
-	</div>			
+	</div>
+	<?php
+	for ($i=1; $i <= $pagesTotal ; $i++) { 
+		echo '<a href="index.php?action=films_historique&page='.$i.'">'.$i.'</a> ';
+	}
+	?>		
 </div>
 
 <?php $content = ob_get_clean(); ?>

@@ -11,22 +11,27 @@ class FrontController{
 
     public function posts($sous_categorie, $categorie){
         $postManager = new PostManager();
-        /*$nbPostsPage = 2;
-        $nbPosts = $postManager->nbPosts();      
-        $nbPages = ceil($nbPosts/$nbPostsPage);
-        if (isset ($_GET['page'])){
-            $pageActuelle=intval($_GET['page']);
-            if ($pageActuelle>=$nbPages){
-                $pageActuelle=$nbPages;
-            }
+        $postsByPage = 6;      
+        $posts = $postManager->getPosts($sous_categorie, $categorie);        
+        $getPostsTotal = $postManager->getPostsTotal($sous_categorie, $categorie);
+
+        $postsTotal = $getPostsTotal->rowCount();
+
+        $pagesTotal = ceil($postsTotal/$postsByPage);
+        
+        if (isset($_GET['page']) AND !empty($_GET['page'])){
+            $pageActuelle = intval($_GET['page']);
         }
         else{
-            $pageActuelle=1;
+            $pageActuelle = 1;
         }
-        $firstPost=($pageActuelle-1)*$nbPostsPage;*/
-        $posts = $postManager->getPosts($sous_categorie, $categorie);
+
+        $firstPost=($pageActuelle-1)*$postsByPage;
+
         require('vue/sous_categories.php');
     }
+
+
 
     public function post($id){
         $postManager = new PostManager();
