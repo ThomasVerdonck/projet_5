@@ -13,7 +13,7 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
     }
 }
 
-if (isset($_GET['action'])) {    
+if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'lastPosts':
             $frontController = new FrontController();
@@ -209,9 +209,13 @@ if (isset($_GET['action'])) {
 
         case 'addPost':
             if(isset($_SESSION['pseudo'])){
-                if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
+                if (!empty($_POST['title']) && empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
                     $backController = new BackController();
                     $backController->addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
+                }
+                elseif (!empty($_POST['title']) && !empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
+                    $backController = new BackController();
+                    $backController->addPost2($_POST['title'], $_POST['author'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
                 }
                 else {
                         echo 'Erreur : tous les champs ne sont pas remplis !';
@@ -267,10 +271,17 @@ if (isset($_GET['action'])) {
             break;
 
         case 'updatePost':
-            if(isset($_SESSION['pseudo'])){                
-                $id = intval($_POST['id']);
-                $backController = new BackController();
-                $backController->updatePost($id);
+            if(isset($_SESSION['pseudo'])){
+                if (empty($_POST['author'])) {
+                    $id = intval($_POST['id']);
+                    $backController = new BackController();
+                    $backController->updatePost($id);
+                }
+                else{
+                    $id = intval($_POST['id']);
+                    $backController = new BackController();
+                    $backController->updatePost2($id);
+                }               
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";

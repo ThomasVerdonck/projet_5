@@ -19,7 +19,12 @@ $css = 'public/style2.css';?>
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
-			        <h5 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h5>
+			        <h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
+			        <?php if (!empty($donnees['auteur'])) {
+                    ?>
+		        	<h5 class="card-title">De <?php echo nl2br(htmlspecialchars($donnees['auteur'])); ?></h5>
+			        <?php
+                	}?>
 			        <p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
 			        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Voir plus</a>
 			      </div>

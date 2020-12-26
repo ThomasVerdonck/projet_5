@@ -20,6 +20,12 @@ $css = 'public/style7.css';
                     <label for="title">Titre</label><br />
                     <input type="text" class="form-control" name="title" value="<?php echo $pageModif['titre']; ?>"/>
                 </div>
+
+                <div class="form-group">
+                    <label for="title">Auteur</label><br />
+                    <input type="text" class="form-control" placeholder="Ne remplir ce champ que pour la catégorie 'Livres' " 
+                    name="author" value="<?php echo $pageModif['auteur']; ?>"/>
+                </div>
                 
                 <div class="form-group">
                     <label for="categorie">ID catégorie</label><br />

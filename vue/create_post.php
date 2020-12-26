@@ -15,13 +15,18 @@ $css = 'public/style5.css';
     <section class="row">
     	<div class="col" class="border-primary">
             <h2>Ajouter un article</h2>
-            <p id="form_title">*Tous les champs sont obligatoires</p>    
+            <p id="form_title">*Champs obligatoires</p>    
             <form enctype="multipart/form-data" action="index.php?action=addPost" method="post">
                 <div class="form-group">
                     <label for="title">Titre*</label><br />
                     <input type="text" class="form-control" name="title" required/>
                 </div>
                 
+                <div class="form-group">
+                    <label for="title">Auteur</label><br />
+                    <input type="text" class="form-control" placeholder="Ne remplir ce champ que pour la catégorie 'Livres' " name="author"/>
+                </div>
+
                 <div class="form-group">
                     <label for="categorie">ID catégorie*</label><br />
                     <select class="form-control" name="cat">

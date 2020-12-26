@@ -3,6 +3,7 @@ $css = 'public/style8.css'; ?>
 
 <?php ob_start(); ?>
 <div class="container py-5">
+    
     <h2>Catégorie: <?php echo nl2br(htmlspecialchars($post['nom_categorie']));?></h2>
     <h3>Genre: <?php echo nl2br(htmlspecialchars($post['nom_sous_categorie']));?></h3>
     <p><a href="index.php?action=lastPosts">Retour à l'accueil</a></p>
@@ -10,9 +11,12 @@ $css = 'public/style8.css'; ?>
     <div class="row">
         <div class="col-12">
             <div class="card" id="chapter">
-                <h2>
-                    <?php echo htmlspecialchars($post['titre']); ?><br>
-                </h2>
+                <h2><?php echo nl2br(htmlspecialchars($post['titre'])); ?><br></h2>
+                <?php if (!empty($post['auteur'])) {
+                ?>
+                <h3>De <?php echo nl2br(htmlspecialchars($post['auteur'])); ?></h3>
+                <?php
+                }?>
                 <img class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
                 <p id="content"><?php echo $post['descriptif'];?></p>
             </div>
