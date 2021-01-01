@@ -2,10 +2,9 @@
 $css = 'public/style2.css';?>
 
 <?php ob_start(); ?>
-<div class="container py-5">
-	 
+<div class="container py-5">	 
 	<h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
-	<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h3>
+	<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h4>
     <div class="row justify-content-center mt-3">
 	    <?php    
 	    while ($donnees = $posts->fetch()){
@@ -35,12 +34,7 @@ $css = 'public/style2.css';?>
 		}    
 		$posts->closeCursor();		
 		?>	
-	</div>
-	<?php
-	for ($i=1; $i <= $pagesTotal ; $i++) { 
-		echo '<a href="index.php?action=films_historique&page='.$i.'">'.$i.'</a> ';
-	}
-	?>		
+	</div>		
 </div>
 
 <?php $content = ob_get_clean(); ?>

@@ -20,21 +20,17 @@ $css = 'public/style7.css';
                     <label for="title">Titre</label><br />
                     <input type="text" class="form-control" name="title" value="<?php echo $pageModif['titre']; ?>"/>
                 </div>
-                <?php
-                if($pageModif['auteur']){?>
                 <div class="form-group">
                     <label for="title">Auteur</label><br />
                     <input type="text" class="form-control" placeholder="Ne remplir ce champ que pour la catégorie 'Livres' " 
                     name="author" value="<?php echo $pageModif['auteur']; ?>"/>
-                </div>
-                <?php 
-                }?>                
+                </div>               
                 <div class="form-group">
                     <label for="categorie">ID catégorie</label><br />
                     <select class="form-control" name="id_cat" value="id_categorie">
                         <?php                        
                             for ($i=0; $i < count($categorie); $i++) { 
-                                if ($categorie[$i]["nom_categorie"] === $pageModif['nom_categorie']) {
+                                if ($categorie[$i]["nom_categorie"] === $pageModif["nom_categorie"]) {
                                     echo '<option value="'.$categorie[$i]["id"].'" selected>'.$categorie[$i]["nom_categorie"].'</option>';
                                 } else {
                                     echo '<option value="'.$categorie[$i]["id"].'">'.$categorie[$i]["nom_categorie"].'</option>';
@@ -42,16 +38,22 @@ $css = 'public/style7.css';
                                 
                             }
                         ?>
-                        <!-- <option value="1">Films</option>
-                        <option value="2">Docus</option>
-                        <option value="3">Séries</option>
-                        <option value="4">Livres</option> -->
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="sous-categorie">ID sous-catégorie</label><br />
                     <select class="form-control" name="id_sous_cat" value="id_sous_categorie">
-                        <option value="1">Historique</option>
+                        <?php                        
+                            for ($i=0; $i < count($sousCategorie); $i++) { 
+                                if ($sousCategorie[$i]["nom_sous_categorie"] === $pageModif["nom_sous_categorie"]) {
+                                    echo '<option value="'.$sousCategorie[$i]["id"].'" selected>'.$sousCategorie[$i]["nom_sous_categorie"].'</option>';
+                                } else {
+                                    echo '<option value="'.$sousCategorie[$i]["id"].'">'.$sousCategorie[$i]["nom_sous_categorie"].'</option>';
+                                }
+                                
+                            }
+                        ?>
+                        <!-- <option value="1">Historique</option>
                         <option value="2">Science-fiction</option>
                         <option value="3">Drame</option>
                         <option value="4">Espionnage</option>
@@ -63,7 +65,7 @@ $css = 'public/style7.css';
                         <option value="10">Sciences interdites</option>
                         <option value="11">Thriller</option>
                         <option value="12">Révélations</option>
-                        <option value="13">Essais</option>
+                        <option value="13">Essais</option> -->
                     </select>
                 </div>
                 <div class="form-group">

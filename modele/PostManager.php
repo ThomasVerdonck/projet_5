@@ -38,20 +38,7 @@ class PostManager extends Manager
 	    return $result;
 	}
 
-	public function countPosts($sous_categorie, $categorie){
-		$bdd = $this->getBdd();
-		$result = $bdd->prepare('SELECT COUNT(articles.id) AS nb_posts FROM articles 
-	    						 LEFT JOIN categories
-	    						 ON categories.id = articles.id_categorie
-	    						 LEFT JOIN sous_categories
-	    						 ON sous_categories.id = articles.id_sous_categorie
-	    						 WHERE nom_sous_categorie = ? AND nom_categorie = ?');
-    	$result->execute(array($sous_categorie, $categorie));
-    	$postsTotal = $result->fetch();
-    	return $postsTotal;
-	}
-
-	public function getPosts($sous_categorie, $categorie, $firstPost, $postsByPage){
+	public function getPosts($sous_categorie, $categorie){
 	    $bdd = $this->getBdd();
 	    $result = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, articles.id_categorie, categories.nom_categorie, sous_categories.nom_sous_categorie 
 	    						 FROM articles
@@ -59,13 +46,12 @@ class PostManager extends Manager
 	    						 ON categories.id = articles.id_categorie
 	    						 LEFT JOIN sous_categories
 	    						 ON sous_categories.id = articles.id_sous_categorie    						 
-	    						 WHERE nom_sous_categorie = ? AND nom_categorie = ? ORDER BY titre LIMIT '.$firstPost.','.$postsByPage);
+	    						 WHERE nom_sous_categorie = ? AND nom_categorie = ? ORDER BY titre');
 	    $result->execute(array($sous_categorie, $categorie));
 	    return $result;
 	}
 	
-    public function getPost($postId)
-    {
+    public function getPost($postId){
         $bdd = $this->getBdd();
         $reponse = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, categories.nom_categorie, sous_categories.nom_sous_categorie
         						 FROM articles 

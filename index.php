@@ -26,17 +26,9 @@ if (isset($_GET['action'])) {
 
         case 'films_historique':
             $sous_categorie = "Historique";
-            $categorie = "Films";
-            $postsByPage = 6;
-            if (isset($_GET['page']) AND !empty($_GET['page'])){
-            $pageActuelle = intval($_GET['page']);
-            }
-            else{
-                $pageActuelle = 1;
-            }        
-            $firstPost=($pageActuelle-1)*$postsByPage;
+            $categorie = "Films";            
             $frontController = new FrontController();
-            $frontController->posts($sous_categorie, $categorie, $firstPost, $postsByPage);
+            $frontController->posts($sous_categorie, $categorie);
 
         case 'films_science_fiction':
             $sous_categorie = "Science-fiction";
@@ -65,6 +57,19 @@ if (isset($_GET['action'])) {
             $frontController = new FrontController();
             $frontController->posts($sous_categorie, $categorie);
             break;
+
+        case 'tous_les_docus':
+            $categorie = "Docus";
+            $postsByPage = 10;
+            if (isset($_GET['page']) AND !empty($_GET['page'])){
+            $pageActuelle = intval($_GET['page']);
+            }
+            else{
+                $pageActuelle = 1;
+            }        
+            $firstPost=($pageActuelle-1)*$postsByPage;
+            $frontController = new FrontController();
+            $frontController->allPosts($categorie, $firstPost, $postsByPage);
 
         case 'docus_histoire':
             $sous_categorie = "Histoire";
@@ -101,26 +106,18 @@ if (isset($_GET['action'])) {
             $frontController->posts($sous_categorie, $categorie);
             break;
 
-        case 'series_science_fiction':
-            $sous_categorie = "Science-fiction";
-            $categorie = "Séries";
+        case 'tous_les_livres':
+            $categorie = "Livres";
+            $postsByPage = 10;
+            if (isset($_GET['page']) AND !empty($_GET['page'])){
+            $pageActuelle = intval($_GET['page']);
+            }
+            else{
+                $pageActuelle = 1;
+            }        
+            $firstPost=($pageActuelle-1)*$postsByPage;
             $frontController = new FrontController();
-            $frontController->posts($sous_categorie, $categorie);
-            break;
-
-        case 'series_drame':
-            $sous_categorie = "Drame";
-            $categorie = "Séries";
-            $frontController = new FrontController();
-            $frontController->posts($sous_categorie, $categorie);
-            break;
-
-        case 'series_espionnage':
-            $sous_categorie = "Espionnage";
-            $categorie = "Séries";
-            $frontController = new FrontController();
-            $frontController->posts($sous_categorie, $categorie);
-            break;
+            $frontController->allPosts($categorie, $firstPost, $postsByPage);
 
         case 'livres_histoire':
             $sous_categorie = "Histoire";
@@ -288,16 +285,9 @@ if (isset($_GET['action'])) {
 
         case 'updatePost':
             if(isset($_SESSION['pseudo'])){
-                if (empty($_POST['author'])) {
                     $id = intval($_POST['id']);
                     $backController = new BackController();
-                    $backController->updatePost($id);
-                }
-                else{
-                    $id = intval($_POST['id']);
-                    $backController = new BackController();
-                    $backController->updatePost2($id);
-                }               
+                    $backController->updatePost($id);              
             }
             else{
                 echo "Vous n'avez pas le droit d'accéder à cette page.";

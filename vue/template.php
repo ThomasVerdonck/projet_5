@@ -40,6 +40,7 @@
 							  	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Docus</a>
 					            	<div class="dropdown-menu">
+					            		<a class="dropdown-item" href="index.php?action=tous_les_docus">Tous les docus</a>
 								      	<a class="dropdown-item" href="index.php?action=docus_histoire">Histoire</a>
 								      	<a class="dropdown-item" href="index.php?action=docus_sante">Santé</a>
 								      	<a class="dropdown-item" href="index.php?action=docus_science">Science</a>
@@ -48,16 +49,9 @@
 								    </div>
 							  	</li>
 							  	<li class="nav-item dropdown">
-				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Séries</a>
-					            	<div class="dropdown-menu">								      	
-								      	<a class="dropdown-item" href="index.php?action=series_science_fiction">Science-Fiction</a>
-								      	<a class="dropdown-item" href="index.php?action=series_drame">Drame</a>
-								      	<a class="dropdown-item" href="index.php?action=series_espionnage">Espionnage</a>
-								    </div>
-							  	</li>
-							  	<li class="nav-item dropdown">
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Livres</a>
 					            	<div class="dropdown-menu">
+					            		<a class="dropdown-item" href="index.php?action=tous_les_livres">Tous les livres</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_histoire">Histoire</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sociologie">Sociologie</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>

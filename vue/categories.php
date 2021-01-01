@@ -2,8 +2,7 @@
 $css = 'public/style2.css';?>
 
 <?php ob_start(); ?>
-<div class="container py-5">
-	 
+<div class="container py-5">	 
 	<h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
     <div class="row justify-content-center mt-3">
 	    <?php    

@@ -19,13 +19,9 @@ class FrontController{
         require('vue/categories.php');
     }
 
-    public function posts($sous_categorie, $categorie, $firstPost, $postsByPage){
+    public function posts($sous_categorie, $categorie){
         $postManager = new PostManager();
-        $postsTotal = $postManager->countPosts($sous_categorie, $categorie);        
-        
-        $pagesTotal = ceil($postsTotal[0]/$postsByPage);
-
-        $posts = $postManager->getPosts($sous_categorie, $categorie, $firstPost, $postsByPage);
+        $posts = $postManager->getPosts($sous_categorie, $categorie);
         require('vue/sous_categories.php');
     }
 
