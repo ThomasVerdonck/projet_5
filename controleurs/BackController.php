@@ -101,7 +101,7 @@ class BackController{
         $connectionManager = new ConnectionManager();
         $pageModif = $connectionManager->pageModifPost($id);
 
-        //$categorie = $connectionManager->getCategorie();
+        //$categorie = $connectionManager->getAllPostsAdmin();
         require('vue/modify_post.php');
     }
 

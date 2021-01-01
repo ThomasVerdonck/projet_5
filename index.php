@@ -4,15 +4,6 @@ require_once('controleurs/FrontController.php');
 require_once('controleurs/BackController.php');
 require_once('controleurs/CommentController.php');
 
-if (isset($_GET['page']) && isset($_GET['action'])) {
-    if ($_GET['action'] == 'films_historique' && $_GET['page'] == 1) {
-        $sous_categorie = "Historique";
-        $categorie = "Films";
-        $frontController = new FrontController();
-        $frontController->posts($sous_categorie, $categorie);
-    }
-}
-
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'lastPosts':
@@ -20,7 +11,19 @@ if (isset($_GET['action'])) {
             $frontController->lastPosts();
             break;
 
-        
+        case 'films_historique':
+            $sous_categorie = "Historique";
+            $categorie = "Films";
+            $postsByPage = 6;
+            if (isset($_GET['page']) AND !empty($_GET['page'])){
+            $pageActuelle = intval($_GET['page']);
+            }
+            else{
+                $pageActuelle = 1;
+            }        
+            $firstPost=($pageActuelle-1)*$postsByPage;
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie, $firstPost, $postsByPage);
 
         case 'films_science_fiction':
             $sous_categorie = "Science-fiction";
