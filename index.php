@@ -11,6 +11,19 @@ if (isset($_GET['action'])) {
             $frontController->lastPosts();
             break;
 
+        case 'tous_les_films':
+            $categorie = "Films";
+            $postsByPage = 10;
+            if (isset($_GET['page']) AND !empty($_GET['page'])){
+            $pageActuelle = intval($_GET['page']);
+            }
+            else{
+                $pageActuelle = 1;
+            }        
+            $firstPost=($pageActuelle-1)*$postsByPage;
+            $frontController = new FrontController();
+            $frontController->allPosts($categorie, $firstPost, $postsByPage);
+
         case 'films_historique':
             $sous_categorie = "Historique";
             $categorie = "Films";

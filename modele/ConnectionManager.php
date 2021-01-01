@@ -40,6 +40,18 @@ class ConnectionManager extends Manager
 	    return $result;
 	}
 
+    public function getCategories(){
+        $bdd = $this->getBdd();
+        $result = $bdd->query('SELECT nom_categorie, id FROM categories');
+        return $result->fetchAll();
+    }
+
+    public function getSousCategories(){
+        $bdd = $this->getBdd();
+        $result = $bdd->query('SELECT nom_sous_categorie, id FROM sous_categories');
+        return $result->fetchAll();
+    }
+
     // SUPPRIMER UN ARTICLE
     public function adminSuppPost($id){
         $bdd = $this->getBdd();
@@ -73,10 +85,15 @@ class ConnectionManager extends Manager
 
     public function updateAdminPost($id){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('UPDATE articles SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
-        $reponse->execute(array($_POST['title'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
-        return $reponse;
-        
+        if (isset($_POST['author']) && !empty($_POST['author'])) {
+            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
+            $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
+            return $reponse;
+        } else {
+            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
+            $reponse->execute(array($_POST['title'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
+            return $reponse;
+        }
     }
 
     public function updateAdminPost2WithPic($id, $fileName){
@@ -86,11 +103,4 @@ class ConnectionManager extends Manager
         return $reponse;
     }
 
-    public function updateAdminPost2($id){
-        $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
-        $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
-        return $reponse;
-        
-    }
 }

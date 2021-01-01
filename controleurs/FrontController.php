@@ -9,20 +9,21 @@ class FrontController{
     	require('vue/accueil.php');
     }
 
-    /*public function postsTotal($sous_categorie, $categorie){
+    public function allPosts($categorie, $firstPost, $postsByPage){
         $postManager = new PostManager();
-        $getPostsTotal = $postManager->getPostsTotal($sous_categorie, $categorie);
-        $postsTotal = $getPostsTotal->rowCount();
-        var_dump($postsTotal);
-        die();
-    }*/
+        $postsTotal = $postManager->countAllPosts($categorie);        
+        
+        $pagesTotal = ceil($postsTotal[0]/$postsByPage);
+
+        $allPosts = $postManager->getAllPosts($categorie, $firstPost, $postsByPage);
+        require('vue/categories.php');
+    }
 
     public function posts($sous_categorie, $categorie, $firstPost, $postsByPage){
         $postManager = new PostManager();
         $postsTotal = $postManager->countPosts($sous_categorie, $categorie);        
         
         $pagesTotal = ceil($postsTotal[0]/$postsByPage);
-
 
         $posts = $postManager->getPosts($sous_categorie, $categorie, $firstPost, $postsByPage);
         require('vue/sous_categories.php');

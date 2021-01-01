@@ -51,7 +51,7 @@ $css = 'public/style5.css';
                         <option value="10">Sciences interdites</option>
                         <option value="11">Thriller</option>
                         <option value="12">Révélations</option>
-                        <option value="12">Essais</option>
+                        <option value="13">Essais</option>
                     </select>
                 </div>
                 <div class="form-group">
