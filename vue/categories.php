@@ -18,7 +18,7 @@ $css = 'public/style2.css';?>
 			    <div class="col-md-8">
 			      <div class="card-body">
 			        <h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
-			        <?php if (!empty($donnees['auteur'])) {
+			        <?php if ($donnees['auteur'] && !empty($donnees['auteur'])) {
                     ?>
 		        	<h5 class="card-title">De <?php echo nl2br(htmlspecialchars($donnees['auteur'])); ?></h5>
 			        <?php
@@ -34,11 +34,31 @@ $css = 'public/style2.css';?>
 		$allPosts->closeCursor();		
 		?>	
 	</div>
-	<?php
-	for ($i=1; $i <= $pagesTotal ; $i++) { 
-		echo '<a href="index.php?action=tous_les_films&page='.$i.'">'.$i.'</a> ';
-	}
-	?>		
+
+	<nav aria-label="...">
+  		<ul class="pagination">  			
+			<?php
+			for ($i=1; $i <= $pagesTotal ; $i++) {
+				if (isset($_GET['page']) AND !empty($_GET['page'])){
+					if($i === intval($_GET['page'])){
+						echo '<li class="page-item active"><a class="page-link" href="index.php?action='.$_GET['action'].'&page='.$i.'">'.$i.'</a></li> ';
+					}
+					else{
+						echo '<li class="page-item"><a class="page-link" href="index.php?action='.$_GET['action'].'&page='.$i.'">'.$i.'</a></li> ';
+					}
+				}
+				elseif($i === 1){
+					echo '<li class="page-item active"><a class="page-link" href="index.php?action='.$_GET['action'].'&page='.$i.'">'.$i.'</a></li> ';
+				}
+				else{
+					echo '<li class="page-item"><a class="page-link" href="index.php?action='.$_GET['action'].'&page='.$i.'">'.$i.'</a></li> ';
+
+				}
+			}
+			?>			
+		</ul>
+	</nav>
+
 </div>
 
 <?php $content = ob_get_clean(); ?>

@@ -19,7 +19,7 @@ $css = 'public/style2.css';?>
 			    <div class="col-md-8">
 			      <div class="card-body">
 			        <h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
-			        <?php if (!empty($donnees['auteur'])) {
+			        <?php if ($donnees['auteur'] && !empty($donnees['auteur'])) {
                     ?>
 		        	<h5 class="card-title">De <?php echo nl2br(htmlspecialchars($donnees['auteur'])); ?></h5>
 			        <?php

@@ -27,7 +27,7 @@ class PostManager extends Manager
 
 	public function getAllPosts($categorie, $firstPost, $postsByPage){
 	    $bdd = $this->getBdd();
-	    $result = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, articles.id_categorie, categories.nom_categorie, sous_categories.nom_sous_categorie 
+	    $result = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, categories.nom_categorie
 	    						 FROM articles
 	    						 LEFT JOIN categories
 	    						 ON categories.id = articles.id_categorie

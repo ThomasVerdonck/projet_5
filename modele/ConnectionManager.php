@@ -12,20 +12,21 @@ class ConnectionManager extends Manager
     }
 
     //CREER UN ARTICLE
+
     public function adminAddPost($title, $content, $cat, $sousCat, $fileName){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('INSERT INTO articles(titre, descriptif, id_categorie, id_sous_categorie, image, date_creation) 
-        VALUES(?, ?, ?, ?, ?, NOW())');
-        $addPost = $reponse->execute(array($title, $content, $cat, $sousCat, $fileName));
-        return $addPost;
-    }
-
-    public function adminAddPost2($title, $author, $content, $cat, $sousCat, $fileName){
-        $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('INSERT INTO articles(titre, auteur, descriptif, id_categorie, id_sous_categorie, image, date_creation) 
-        VALUES(?, ?, ?, ?, ?, ?, NOW())');
-        $addPost = $reponse->execute(array($title, $author, $content, $cat, $sousCat, $fileName));
-        return $addPost;
+        if (isset($_POST['author']) && !empty($_POST['author'])) {
+            $reponse = $bdd->prepare('INSERT INTO articles(titre, auteur, descriptif, id_categorie, id_sous_categorie, image, date_creation) 
+            VALUES(?, ?, ?, ?, ?, ?, NOW())');
+            $addPost = $reponse->execute(array($title, $_POST['author'], $content, $cat, $sousCat, $fileName));
+            return $addPost;
+        }
+        else{
+            $reponse = $bdd->prepare('INSERT INTO articles(titre, descriptif, id_categorie, id_sous_categorie, image, date_creation) 
+            VALUES(?, ?, ?, ?, ?, NOW())');
+            $addPost = $reponse->execute(array($title, $content, $cat, $sousCat, $fileName));
+            return $addPost;
+        }
     }
     
     public function getAllPostsAdmin(){

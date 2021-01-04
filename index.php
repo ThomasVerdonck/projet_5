@@ -23,12 +23,14 @@ if (isset($_GET['action'])) {
             $firstPost=($pageActuelle-1)*$postsByPage;
             $frontController = new FrontController();
             $frontController->allPosts($categorie, $firstPost, $postsByPage);
+            break;
 
         case 'films_historique':
             $sous_categorie = "Historique";
             $categorie = "Films";            
             $frontController = new FrontController();
             $frontController->posts($sous_categorie, $categorie);
+            break;
 
         case 'films_science_fiction':
             $sous_categorie = "Science-fiction";
@@ -70,6 +72,7 @@ if (isset($_GET['action'])) {
             $firstPost=($pageActuelle-1)*$postsByPage;
             $frontController = new FrontController();
             $frontController->allPosts($categorie, $firstPost, $postsByPage);
+            break;
 
         case 'docus_histoire':
             $sous_categorie = "Histoire";
@@ -118,6 +121,7 @@ if (isset($_GET['action'])) {
             $firstPost=($pageActuelle-1)*$postsByPage;
             $frontController = new FrontController();
             $frontController->allPosts($categorie, $firstPost, $postsByPage);
+            break;
 
         case 'livres_histoire':
             $sous_categorie = "Histoire";
@@ -222,13 +226,9 @@ if (isset($_GET['action'])) {
 
         case 'addPost':
             if(isset($_SESSION['pseudo'])){
-                if (!empty($_POST['title']) && empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
-                    $backController = new BackController();
-                    $backController->addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
-                }
-                elseif (!empty($_POST['title']) && !empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
-                    $backController = new BackController();
-                    $backController->addPost2($_POST['title'], $_POST['author'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
+                if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['cat']) && !empty($_POST['sous_cat'])) {
+                $backController = new BackController();
+                $backController->addPost($_POST['title'], $_POST['content'], $_POST['cat'], $_POST['sous_cat']);
                 }
                 else {
                         echo 'Erreur : tous les champs ne sont pas remplis !';
