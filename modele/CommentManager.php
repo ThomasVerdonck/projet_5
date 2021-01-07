@@ -1,5 +1,6 @@
 <?php
-require_once("Manager.php");
+//require_once("Manager.php");
+use Model\Manager;
 
 class CommentManager extends Manager
 {

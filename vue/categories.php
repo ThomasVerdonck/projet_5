@@ -52,7 +52,6 @@ $css = 'public/style2.css';?>
 				}
 				else{
 					echo '<li class="page-item"><a class="page-link" href="index.php?action='.$_GET['action'].'&page='.$i.'">'.$i.'</a></li> ';
-
 				}
 			}
 			?>			

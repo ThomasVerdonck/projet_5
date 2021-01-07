@@ -6,9 +6,14 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script defer src="public/supp.js" type="text/javascript"></script>
+		<script src="https://cdn.tiny.cloud/1/cfos1nec3uc2llda2z38zfjqrwqe6su7a9ld9xlnls6flfwg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<script>
+	      tinymce.init({
+	        selector: '#mytextarea'
+	      });
+    	</script>
 		<link rel="stylesheet" href="<?php echo $css;?>"/>
-		<link rel="stylesheet" type="text/css" href="public/fontawesome/css/all.min.css"/>
-		
+		<link rel="stylesheet" type="text/css" href="public/fontawesome/css/all.min.css"/>		
 		<title><?= $title ?></title>		
 	</head>
 	
@@ -52,12 +57,14 @@
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Livres</a>
 					            	<div class="dropdown-menu">
 					            		<a class="dropdown-item" href="index.php?action=tous_les_livres">Tous les livres</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_histoire">Histoire</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_sociologie">Sociologie</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_sante">Santé</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_economie">Economie</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_essais">Essais</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_histoire">Histoire</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_nature">Nature</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_révélations">Révélations</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sante">Santé</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_sociologie">Sociologie</a>
 								    </div>
 							  	</li>				            	
 				            	<?php 

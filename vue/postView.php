@@ -17,8 +17,14 @@ $css = 'public/style8.css'; ?>
                 <h3>De <?php echo nl2br(htmlspecialchars($post['auteur'])); ?></h3>
                 <?php
                 }?>
-                <img class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
-                <p id="content"><?php echo $post['descriptif'];?></p>
+                <div id="post" class="col-12">
+                    <div id="div_img_post">
+                        <img id="img_post" class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
+                    </div>
+                    <div>
+                        <p id="content"><?php echo $post['descriptif'];?></p>
+                    </div>
+                </div>
             </div>
         </div>      
 
@@ -26,23 +32,23 @@ $css = 'public/style8.css'; ?>
             <?php
             if ($post['nom_categorie'] === "Films") {?>
                 <p>Avez-vous vu ce film?</p>
+                <p>Qu'en avez-vous pensé? En quoi ce film permet-il de mieux comprendre la réalité de notre monde?</p>
             <?php
             }
             elseif ($post['nom_categorie'] === "Docus") {?>
                 <p>Avez-vous vu ce documentaire?</p>
+                <p>Qu'en avez-vous pensé? En quoi ce documentaire permet-il de mieux comprendre la réalité de notre monde?</p>
             <?php
-            }
-            elseif ($post['nom_categorie'] === "Séries") {?>
-                <p>Avez-vous vu cette série?</p>
-            <?php
-            }
+            }            
             elseif ($post['nom_categorie'] === "Livres") {?>
                 <p>Avez-vous lu ce livre?</p>
+                <p>Qu'en avez-vous pensé? En quoi ce livre permet-il de mieux comprendre la réalité de notre monde?</p>
             <?php
-            }?>
-            <p>Qu'en avez-vous pensé?</p>
+            }?>            
             <p>Laissez un commentaire</p>
-            
+        </section>
+
+        <section>            
             <?php while ($comment = $comments->fetch()){                
             ?>
                 <div class="col-12">                        
@@ -74,7 +80,7 @@ $css = 'public/style8.css'; ?>
         <section id="add_comment" class="col-12">
             <div class="col-12">
                 <h2>Ajouter un commentaire</h2>
-                <p id="form_title">*Tous les champs sont obligatoires</p>    
+                <p id="form_title">*Ces deux champs sont obligatoires</p>    
                 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     <div class="form-group">
                         <label for="author">Pseudo*</label><br />

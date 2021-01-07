@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/vendor/autoload.php';
 require_once('controleurs/FrontController.php');
 require_once('controleurs/BackController.php');
 require_once('controleurs/CommentController.php');
@@ -160,6 +161,20 @@ if (isset($_GET['action'])) {
 
         case 'livres_révélations':
             $sous_categorie = "Révélations";
+            $categorie = "Livres";
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_economie':
+            $sous_categorie = "Economie";
+            $categorie = "Livres";
+            $frontController = new FrontController();
+            $frontController->posts($sous_categorie, $categorie);
+            break;
+
+        case 'livres_nature':
+            $sous_categorie = "Nature";
             $categorie = "Livres";
             $frontController = new FrontController();
             $frontController->posts($sous_categorie, $categorie);
@@ -346,6 +361,8 @@ if (isset($_GET['action'])) {
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
             }
             break;
+        default:
+            header("Location: http://localhost:83/projet_5/index.php?action=lastPosts");
     }   
 }
 else {

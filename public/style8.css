@@ -1,5 +1,5 @@
 body {
-    font-family: 'robotolight', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color: rgb(51, 51, 51);
     background-color: rgb(239, 240, 242);
 }
@@ -8,6 +8,9 @@ header{
     text-transform: uppercase;
 }
 
+#chapter{
+    padding: 20px;
+}
 
 #chapter h2{
     font-size: 1.5em;
@@ -18,20 +21,31 @@ header{
     color: rgba(51, 51, 51, 0.5);
 }
 
-img{
-    width: 65%;
+#post{
+    display: flex;
+}
+
+#div_img_post{
+    min-width: 300px;
+}
+
+#img_post{
+    height: auto;
+    min-width: 100%;
 }
 
 #content{
-    margin: 50px 20px 50px 20px;
+    margin: 0px 20px 0px 20px;
 }
 
 #comments 
 {
     margin-top: 50px;
+    text-align: center;
+    font-weight: bold;
 }
 
-#comments h2{
+.container > h2, .container > h3{
     text-align: center;
 }
 
@@ -89,4 +103,23 @@ button a:hover{
 
 footer{
     color: white;
+}
+
+@media only screen and (max-width: 991px)
+{
+    #post{
+        display: block;     
+    }
+
+    #chapter h2, h3{
+        text-align: center;
+    }
+
+    #div_img_post{
+        min-width: 188px;
+    }
+
+    #content, #chapter h2{
+        margin: 20px;
+    }
 }

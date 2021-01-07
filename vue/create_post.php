@@ -32,7 +32,6 @@ $css = 'public/style5.css';
                     <select class="form-control" name="cat">
                         <option value="1">Films</option>
                         <option value="2">Docus</option>
-                        <option value="3">Séries</option>
                         <option value="4">Livres</option>
                     </select>
                 </div>
@@ -52,6 +51,8 @@ $css = 'public/style5.css';
                         <option value="11">Thriller</option>
                         <option value="12">Révélations</option>
                         <option value="13">Essais</option>
+                        <option value="14">Nature</option>
+                        <option value="15">Economie</option>
                     </select>
                 </div>
                 <div class="form-group">

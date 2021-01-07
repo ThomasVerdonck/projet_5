@@ -53,19 +53,6 @@ $css = 'public/style7.css';
                                 
                             }
                         ?>
-                        <!-- <option value="1">Historique</option>
-                        <option value="2">Science-fiction</option>
-                        <option value="3">Drame</option>
-                        <option value="4">Espionnage</option>
-                        <option value="5">Histoire</option>
-                        <option value="6">Santé</option>
-                        <option value="7">Science</option>
-                        <option value="8">Propagande</option>
-                        <option value="9">Sociologie</option>
-                        <option value="10">Sciences interdites</option>
-                        <option value="11">Thriller</option>
-                        <option value="12">Révélations</option>
-                        <option value="13">Essais</option> -->
                     </select>
                 </div>
                 <div class="form-group">

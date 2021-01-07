@@ -13,6 +13,10 @@ table, h2{
     text-align: center;
 }
 
+.btnSupp{
+	color: #fff !important;
+}
+
 /*Pied de page*/
 #bg-footer{
     margin-top: 400px;
