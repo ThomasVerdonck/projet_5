@@ -60,7 +60,7 @@ class ConnectionManager extends Manager
 		    						LEFT JOIN sous_categories
 		    						ON sous_categories.id = articles.id_sous_categorie
         							WHERE articles.id = ?');
-        $pageModif = $reponse->execute(array($id));
+        $modifPost = $reponse->execute(array($id));
         $result = $reponse->fetch();
         return $result;
     }
@@ -80,15 +80,19 @@ class ConnectionManager extends Manager
 //METTRE A JOUR L'ARTICLE
     public function updateAdminPostWithPic($id, $fileName){
         $bdd = $this->getBdd();
-            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ?, image = ? WHERE id = ?');
-            $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $fileName, $id));
+            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, 
+            id_sous_categorie = ?, image = ? WHERE id = ?');
+            $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), 
+            intval($_POST['id_sous_cat']), $fileName, $id));
             return $reponse;
     }
 
     public function updateAdminPost($id){
         $bdd = $this->getBdd();
-            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, id_sous_categorie = ? WHERE id = ?');
-            $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), intval($_POST['id_sous_cat']), $id));
+            $reponse = $bdd->prepare('UPDATE articles SET titre = ?, auteur = ?, descriptif = ?, id_categorie = ?, 
+            id_sous_categorie = ? WHERE id = ?');
+            $reponse->execute(array($_POST['title'], $_POST['author'], $_POST['content'], intval($_POST['id_cat']), 
+            intval($_POST['id_sous_cat']), $id));
             return $reponse;
     }
 

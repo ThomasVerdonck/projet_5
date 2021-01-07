@@ -32,20 +32,23 @@ $css = 'public/style8.css'; ?>
             <?php
             if ($post['nom_categorie'] === "Films") {?>
                 <p>Avez-vous vu ce film?</p>
-                <p>Qu'en avez-vous pensé? En quoi ce film permet-il de mieux comprendre la réalité de notre monde?</p>
+                <p>Qu'en avez-vous pensé? En quoi ce film est intéressant?<br>
+                Permet-il de mieux comprendre la réalité de notre monde?</p>
+                <p>Faites part de votre avis en laissant un commentaire.</p>
             <?php
             }
             elseif ($post['nom_categorie'] === "Docus") {?>
                 <p>Avez-vous vu ce documentaire?</p>
-                <p>Qu'en avez-vous pensé? En quoi ce documentaire permet-il de mieux comprendre la réalité de notre monde?</p>
+                <p>Qu'en avez-vous pensé? En quoi ce documentaire peut-il être utile pour mieux comprendre la réalité de notre monde?</p>
+                <p>Faites part de votre avis en laissant un commentaire.</p>
             <?php
             }            
             elseif ($post['nom_categorie'] === "Livres") {?>
                 <p>Avez-vous lu ce livre?</p>
                 <p>Qu'en avez-vous pensé? En quoi ce livre permet-il de mieux comprendre la réalité de notre monde?</p>
+                <p>Faites part de votre avis en laissant un commentaire.</p>
             <?php
-            }?>            
-            <p>Laissez un commentaire</p>
+            }?>
         </section>
 
         <section>            

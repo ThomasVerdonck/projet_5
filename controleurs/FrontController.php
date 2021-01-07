@@ -11,8 +11,7 @@ class FrontController{
 
     public function allPosts($categorie, $firstPost, $postsByPage){
         $postManager = new PostManager();
-        $postsTotal = $postManager->countAllPosts($categorie);        
-        
+        $postsTotal = $postManager->countAllPosts($categorie);
         $pagesTotal = ceil($postsTotal[0]/$postsByPage);
 
         $allPosts = $postManager->getAllPosts($categorie, $firstPost, $postsByPage);

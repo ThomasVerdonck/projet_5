@@ -12,8 +12,7 @@
 	        selector: '#mytextarea'
 	      });
     	</script>
-		<link rel="stylesheet" href="<?php echo $css;?>"/>
-		<link rel="stylesheet" type="text/css" href="public/fontawesome/css/all.min.css"/>		
+		<link rel="stylesheet" href="<?php echo $css;?>"/>		
 		<title><?= $title ?></title>		
 	</head>
 	

@@ -281,12 +281,12 @@ if (isset($_GET['action'])) {
             }
             break;
 
-        case 'pageModif':
+        case 'modifPost':
             if(isset($_SESSION['pseudo'])){
                 $id = intval($_GET['id']);                
                 if (isset($_GET['id']) && $_GET['id'] > 0) {                    
                     $backController = new BackController();
-                    $backController->pageModif($id);
+                    $backController->modifPost($id);
 
                 }
                 else{

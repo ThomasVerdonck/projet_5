@@ -15,7 +15,10 @@ class CommentManager extends Manager
     public function getComments($postId)//récupère les commentaires associés à un ID de post
     {
         $bdd = $this->getBdd();
-        $comments = $bdd->prepare('SELECT id, id_post, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin\') AS date_commentaire_fr, signalements FROM commentaires WHERE id_post = ? ORDER BY date_commentaire DESC');
+        $comments = $bdd->prepare('SELECT id, id_post, auteur, commentaire, 
+                                    DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin\') 
+                                    AS date_commentaire_fr, signalements FROM commentaires WHERE id_post = ? 
+                                    ORDER BY date_commentaire DESC');
         $comments->execute(array($postId));
         return $comments;
     }
