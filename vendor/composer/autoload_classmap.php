@@ -7,5 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Controleurs\\BackController' => $baseDir . '/controleurs/BackController.php',
+    'Controleurs\\CommentController' => $baseDir . '/controleurs/CommentController.php',
+    'Controleurs\\FrontController' => $baseDir . '/controleurs/FrontController.php',
+    'Model\\CommentManager' => $baseDir . '/modele/CommentManager.php',
+    'Model\\ConnectionManager' => $baseDir . '/modele/ConnectionManager.php',
     'Model\\Manager' => $baseDir . '/modele/Manager.php',
+    'Model\\PostManager' => $baseDir . '/modele/PostManager.php',
 );

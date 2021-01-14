@@ -11,6 +11,10 @@ class ComposerStaticInit103de23f0afdc6845fe33ce709ed46cc
         array (
             'Model\\' => 6,
         ),
+        'C' => 
+        array (
+            'Controleurs\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -18,11 +22,21 @@ class ComposerStaticInit103de23f0afdc6845fe33ce709ed46cc
         array (
             0 => __DIR__ . '/../..' . '/modele',
         ),
+        'Controleurs\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controleurs',
+        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Controleurs\\BackController' => __DIR__ . '/../..' . '/controleurs/BackController.php',
+        'Controleurs\\CommentController' => __DIR__ . '/../..' . '/controleurs/CommentController.php',
+        'Controleurs\\FrontController' => __DIR__ . '/../..' . '/controleurs/FrontController.php',
+        'Model\\CommentManager' => __DIR__ . '/../..' . '/modele/CommentManager.php',
+        'Model\\ConnectionManager' => __DIR__ . '/../..' . '/modele/ConnectionManager.php',
         'Model\\Manager' => __DIR__ . '/../..' . '/modele/Manager.php',
+        'Model\\PostManager' => __DIR__ . '/../..' . '/modele/PostManager.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,7 +1,5 @@
 <?php
 namespace Controleurs;
-use PDO;
-//require_once('modele/ConnectionManager.php');
 use Model\ConnectionManager;
 
 class BackController{

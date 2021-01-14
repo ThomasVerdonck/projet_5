@@ -1,4 +1,6 @@
-AuthName "Page d'administration protégée"
-AuthType Basic
-AuthUserFile "http://localhost:83/projet_5/.htpasswd"
-Require valid-user
+RewriteEngine on 
+RewriteRule ^controleurs/?$ - [F,L]
+RewriteRule ^modele/?$ - [F,L]
+RewriteRule ^vue/?$ - [F,L]
+RewriteRule ^vendor/?$ - [F,L]
+FallbackResource /index.php

@@ -1,5 +1,6 @@
 <?php
 //require_once("Manager.php");
+namespace Model;
 use Model\Manager;
 
 class ConnectionManager extends Manager

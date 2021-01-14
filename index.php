@@ -4,9 +4,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Controleurs\FrontController;
 use Controleurs\BackController;
 use Controleurs\CommentController;
-//require_once('controleurs/FrontController.php');
-//require_once('controleurs/BackController.php');
-//require_once('controleurs/CommentController.php');
 
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
