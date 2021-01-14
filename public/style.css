@@ -11,6 +11,18 @@ header{
 
 /*Section accueil*/
 
+.d-block{
+  position: absolute;
+}
+
+.carousel-item, .carousel-item-active {
+background-size: cover;
+width: 500px;
+height: 400px;
+float: none;
+margin: auto;
+}
+
 #contenu{
 	text-overflow: ellipsis;
 	overflow: hidden;

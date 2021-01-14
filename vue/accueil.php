@@ -17,8 +17,8 @@ $css = 'public/style.css';?>
 		while ($donnees = $lastPosts->fetch()){
 			if ($ligne === 1) {
 			?>
-				<div class="carousel-item active">
-					<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block w-100" alt="<?php echo $donnees['image']; ?>">
+				<div class="carousel-item active" style="background-image:url(<?php echo $donnees['image']; ?>)">
+					<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block" width="400" alt="<?php echo $donnees['image']; ?>">
 				    <div class="carousel-caption d-none d-md-block">
 				    	<h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
 				    	<p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
@@ -29,7 +29,7 @@ $css = 'public/style.css';?>
 			else{
 			?>					
 				<div class="carousel-item">
-					<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block w-100" alt="<?php echo $donnees['image']; ?>">
+					<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block" width="400" alt="<?php echo $donnees['image']; ?>">
 					<div class="carousel-caption d-none d-md-block">
 				    	<h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
 				    	<p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>

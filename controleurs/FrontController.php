@@ -1,6 +1,10 @@
 <?php
-require_once('modele/PostManager.php');
-require_once('modele/CommentManager.php');
+namespace Controleurs;
+use PDO;
+//require_once('modele/PostManager.php');
+//require_once('modele/CommentManager.php');
+use Model\PostManager;
+use Model\CommentManager;
 
 class FrontController{
     public function lastPosts(){

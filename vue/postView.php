@@ -22,7 +22,7 @@ $css = 'public/style8.css'; ?>
                         <img id="img_post" class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
                     </div>
                     <div>
-                        <p id="content"><?php echo $post['descriptif'];?></p>
+                        <p id="content"><?php echo htmlspecialchars($post['descriptif']);?></p>
                     </div>
                 </div>
             </div>

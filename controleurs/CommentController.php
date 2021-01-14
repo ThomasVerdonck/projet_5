@@ -1,7 +1,12 @@
 <?php
-require_once('modele/PostManager.php');
-require_once('modele/CommentManager.php');
-require_once('modele/ConnectionManager.php');
+namespace Controleurs;
+use PDO;
+//require_once('modele/PostManager.php');
+//require_once('modele/CommentManager.php');
+//require_once('modele/ConnectionManager.php');
+use Model\PostManager;
+use Model\CommentManager;
+use Model\ConnectionManager;
 
 class CommentController{
     public function addComment($postId, $author, $comment){
