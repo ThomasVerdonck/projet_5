@@ -2,8 +2,11 @@
 $css = 'public/style2.css';?>
 
 <?php ob_start(); ?>
-<div class="container py-5">	 
-	<h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
+<div class="container py-5">
+	<div id="cat">
+		<h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
+		<hr>
+	</div>
     <div class="row justify-content-center mt-3">
 	    <?php    
 	    while ($donnees = $allPosts->fetch()){
@@ -24,7 +27,7 @@ $css = 'public/style2.css';?>
 			        <?php
                 	}?>
 			        <p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
-			        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Voir plus</a>
+			        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Lire la suite</a>
 			      </div>
 			    </div>
 			  </div>

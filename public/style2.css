@@ -8,14 +8,34 @@ header{
     text-transform: uppercase;
 }
 
-.navbar-light .navbar-brand{
-	color: #007bff;
-}
-.navbar-light .navbar-toggler{
-	color: #007bff !important;
+/*Section accueil*/
+
+h2, #cat h4{
+  color: #FFF;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.37;
+  padding: .375rem .75rem;
 }
 
-/*Section accueil*/
+#cat a{
+  color: #FFF;
+}
+
+#cat a:hover{
+  text-decoration: none;
+  color: #FFF;
+}
+
+h2{
+  background-color: #007bff;
+}
+
+#cat h4{
+  background-color: #343a40;
+}
 
 #contenu{
   text-overflow: ellipsis;
@@ -25,10 +45,9 @@ header{
    -webkit-box-orient: vertical;
 }
 
-h2, h4, h5, h6{
-  text-align: center;
+.btn{
+  font-size: 14px;
 }
-
 
 /*Pied de page*/
 #bg-footer{

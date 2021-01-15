@@ -2,9 +2,30 @@
 $css = 'public/style2.css';?>
 
 <?php ob_start(); ?>
-<div class="container py-5">	 
-	<h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2>
-	<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h4>
+<div class="container py-5">
+	<div id="cat">
+		<?php
+		if($categorie === "Films"){
+			?>
+ 			<a href="index.php?action=tous_les_films"><h2>Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></h2></a>
+			<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h4>
+			<?php
+		}
+		elseif($categorie === "Docus"){
+			?>
+ 			<h2><a href="index.php?action=tous_les_docus">Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></a></h2>
+			<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h4>
+			<?php
+		}
+		elseif($categorie === "Livres"){
+			?>
+ 			<h2><a href="index.php?action=tous_les_livres">Catégorie: <?php echo nl2br(htmlspecialchars($categorie));?></a></h2>
+			<h4>Genre: <?php echo nl2br(htmlspecialchars($sous_categorie));?></h4>
+			<?php
+		}
+		?>
+		<hr>
+	</div> 
     <div class="row justify-content-center mt-3">
 	    <?php    
 	    while ($donnees = $posts->fetch()){
@@ -25,7 +46,7 @@ $css = 'public/style2.css';?>
 			        <?php
                 	}?>
 			        <p class="card-text" id="contenu"><?php echo nl2br(htmlspecialchars($donnees['descriptif'])); ?></p>
-			        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Voir plus</a>
+			        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Lire la suite</a>
 			      </div>
 			    </div>
 			  </div>

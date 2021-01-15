@@ -1,3 +1,6 @@
+.custom-logo{
+  max-width: 100%;
+}
 
 body {
     font-family: 'robotolight', Arial, sans-serif;
@@ -11,16 +14,20 @@ header{
 
 /*Section accueil*/
 
-.d-block{
-  position: absolute;
+h2{
+  text-align: center;
 }
 
-.carousel-item, .carousel-item-active {
-background-size: cover;
-width: 500px;
-height: 400px;
-float: none;
-margin: auto;
+.carousel-item img{
+  height: 550px;
+}
+
+#texte{
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  height: 130px;
+  left: 0;
+  right: 0;
 }
 
 #contenu{
@@ -31,16 +38,29 @@ margin: auto;
    -webkit-box-orient: vertical;
 }
 
-h2{
-  text-align: center;
-}
-
 
 /*Pied de page*/
 #bg-footer{
-    margin-top: 400px;
+    margin-top: 150px;
 }
 
 footer{
     color: white;
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container{
+      max-width: 550px;
+    }
+}
+
+@media only screen and (max-width: 400px)
+{
+    .container{
+      max-width: 300px;
+    }
+    .carousel-item img{
+      height: 300px;
+    }
 }
