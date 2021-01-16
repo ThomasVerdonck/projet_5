@@ -19,9 +19,9 @@ table, h2{
 
 /*Pied de page*/
 #bg-footer{
-    margin-top: 400px;
+    margin-top: 150px;
 }
 
-footer{
+footer, footer a, footer a:hover{
     color: white;
 }

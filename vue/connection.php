@@ -7,9 +7,8 @@ $css = 'public/style3.css';
 	<p id="admin">Espace réservé à l'administration</p>
 </div>
 <div class="row">		
-	<img src="public/images/logo.png"  class="img-fluid" alt="">
+	<img src="public/images/reveil.png"  class="img-fluid" alt="">
 </div>
-
 
 <section id="form">
 	<h2>Connexion</h2>

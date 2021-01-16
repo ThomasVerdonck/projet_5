@@ -115,5 +115,22 @@ class BackController{
                 header('Location: index.php?action=listAllPostsAdmin');
             }
         }    
+    }
+
+    public function modifText(){
+        $connectionManager = new ConnectionManager();
+        $modifText = $connectionManager->modifAdminText();
+        require('vue/texte_presentation.php');
+    }
+
+    public function updateText($content){
+        $connectionManager = new ConnectionManager();
+        $updateText = $connectionManager->updateAdminText($content);                        
+        if ($updateText === false) {
+                die('Impossible de mettre à jour le texte de présentation du site !');
+        }
+        else {
+            header("Location: index.php?action=lastPosts");
+        }
     }    
 }

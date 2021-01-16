@@ -13,6 +13,7 @@ $css = 'public/style4.css';
 	        	<li><a href="index.php?action=create_post">Créer un article</a></li>
 	        	<li><a href="index.php?action=listAllPostsAdmin">Voir tous les articles</a></li>
 	        	<li><a href="index.php?action=manageComments">Commentaires signalés</a></li>
+	        	<li><a href="index.php?action=presentation">Texte de présentation</a></li>
 	        </ul>		           	
 	    </nav>
 	</div>

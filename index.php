@@ -361,6 +361,31 @@ if (isset($_GET['action'])) {
                 echo "Vous n'avez pas le droit d'accéder à cette page.";
             }
             break;
+
+        case 'presentation':
+            if(isset($_SESSION['pseudo'])){                    
+                $backController = new BackController();
+                $backController->modifText();
+            }
+            else{
+                echo "Vous n'avez pas le droit d'accéder à cette page.";
+            }
+            break;
+
+        case 'updateText':
+            if(isset($_SESSION['pseudo'])){
+                if (!empty($_POST['content'])) {
+                $backController = new BackController();
+                $backController->updateText($_POST['content']);
+                }
+                else {
+                        echo 'Erreur : Le champ n\'est pas rempli !';
+                }
+            }
+            else{
+                echo "Vous n'avez pas le droit d'accéder à cette page.";
+            }
+            break;
         default:
             header("Location: http://localhost:83/projet_5/index.php?action=lastPosts");
     }   
