@@ -7,7 +7,7 @@ class PostManager extends Manager
 {
 	public function getLastPosts(){
 	    $bdd = $this->getBdd();
-	    $result = $bdd->query('SELECT titre, auteur, descriptif, image
+	    $result = $bdd->query('SELECT id, titre, auteur, descriptif, image
 						 		FROM articles ORDER BY date_creation DESC LIMIT 0, 5 ');
 		return $result;
 	}

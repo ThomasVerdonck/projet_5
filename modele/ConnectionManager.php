@@ -1,5 +1,4 @@
 <?php
-//require_once("Manager.php");
 namespace Model;
 use Model\Manager;
 
@@ -54,7 +53,8 @@ class ConnectionManager extends Manager
 //ACCEDER AU FORMULAIRE POUR MODIFIER UN POST
     public function pageModifPost($id){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, categories.nom_categorie, sous_categories.nom_sous_categorie 
+        $reponse = $bdd->prepare('SELECT articles.id, articles.titre, articles.auteur, articles.descriptif, articles.image, 
+                                    categories.nom_categorie, sous_categories.nom_sous_categorie 
                                     FROM articles
         							LEFT JOIN categories
 		    						ON categories.id = articles.id_categorie
@@ -105,9 +105,9 @@ class ConnectionManager extends Manager
 
     public function updateAdminText($content){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('UPDATE presentation SET texte ');
-        $updateText = $reponse->execute(array($content));
-        return $updateText;
+        $reponse = $bdd->prepare('UPDATE presentation SET texte = ?');
+        $reponse->execute(array($content));
+        return $reponse;
     }
 
 }

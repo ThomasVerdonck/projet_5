@@ -16,13 +16,13 @@ class CommentController{
         }
     }
 
-    //Un visiteur signale un commentaire -> Mise à jour BDD et affichage du com' ds le TdB
+    //Un visiteur signale un commentaire -> Mise à jour BDD
     public function reportedComment($id){
         $commentManager = new CommentManager();
         $commentManager->reportedCom($id);
         header('Location: index.php?action=showPost&id=' . $_GET['postId']);    
     }
-
+    //Affichage du com' ds le TdB
     public function allReportedComments(){
         $commentManager = new CommentManager();
         $allReportedComments = $commentManager->getAllReportedComments();

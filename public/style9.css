@@ -13,6 +13,10 @@ table, h2{
     text-align: center;
 }
 
+td, th{
+	vertical-align: middle !important;
+}
+
 /*Pied de page*/
 #bg-footer{
     margin-top: 150px;
@@ -21,3 +25,11 @@ table, h2{
 footer, footer a, footer a:hover{
     color: white;
 }
+
+@media only screen and (max-width: 768px)
+{
+    #commentaire{
+      white-space: nowrap!important;
+    }
+}
+

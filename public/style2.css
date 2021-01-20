@@ -25,6 +25,7 @@ header{
 
 h2, #cat h4{
   color: #FFF;
+  font-family: Arial, sans-serif;
   display: inline-block;
   border-radius: 3px;
   font-size: 15px;

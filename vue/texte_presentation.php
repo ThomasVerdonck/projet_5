@@ -15,10 +15,10 @@ $css = 'public/style10.css';
     <section class="row">
     	<div class="col" class="border-primary">
             <h2>Texte de présentation présent sur la page d'accueil</h2>    
-            <form enctype="multipart/form-data" action="index.php?action=updateText" method="post">                
+            <form action="index.php?action=updateText" method="post">                
                 <div class="form-group">
                     <label for="content">Contenu</label><br />
-                    <textarea class="form-control" id="presentation_area" name="content"><?php echo $modifText; ?></textarea>
+                    <textarea class="form-control" id="mytextarea" name="content"><?php echo $modifText; ?></textarea>
                 </div>            
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" id="submit" value="Mettre à jour"/>
