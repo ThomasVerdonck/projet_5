@@ -100,7 +100,7 @@ class ConnectionManager extends Manager
     public function modifAdminText(){
         $bdd = $this->getBdd();
         $result = $bdd->query('SELECT texte FROM presentation');
-        return $result;
+        return $result->fetch();
     }
 
     public function updateAdminText($content){

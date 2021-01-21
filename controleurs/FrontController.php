@@ -7,6 +7,7 @@ class FrontController{
     public function lastPosts(){
     	$postManager = new PostManager();
         $lastPosts = $postManager->getLastPosts();
+        $presentationText = $postManager->getPresentationText();
     	require('vue/accueil.php');
     }
 
@@ -31,6 +32,11 @@ class FrontController{
         $post = $postManager->getPost($id);
         $comments = $commentManager->getComments($id);
         require('vue/postView.php');
+    }
+
+    public function presentationText(){
+        $postManager = new PostManager();
+        $presentationText = $postManager->getPresentationText();
     }
 }
 

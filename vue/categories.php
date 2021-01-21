@@ -27,7 +27,7 @@ $css = 'public/style2.css';?>
 			        	<h5 class="card-title">De <?php echo nl2br(htmlspecialchars($donnees['auteur'])); ?></h5>
 				        <?php
 	                	}?>
-				        <p class="card-text" id="contenu"><?php echo $donnees['descriptif']; ?></p>
+				        <p class="card-text" id="contenu"><?php echo htmlspecialchars_decode(stripslashes(substr($donnees['descriptif'], 0, 200))); ?></p>
 				        <a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="btn btn-primary">Lire la suite</a>
 				      </div>
 				    </div>

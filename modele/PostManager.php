@@ -66,5 +66,11 @@ class PostManager extends Manager
         $reponse->execute(array($postId));
         $post = $reponse->fetch();
         return $post;
+    }
+
+    public function getPresentationText(){
+        $bdd = $this->getBdd();
+        $result = $bdd->query('SELECT texte FROM presentation');
+        return $result->fetch();
     }    
 }

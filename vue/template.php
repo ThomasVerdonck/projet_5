@@ -10,7 +10,10 @@
 		<link rel="stylesheet" href="<?php echo $css;?>"/>
     	<script>
 	      tinymce.init({
-	        selector: '#mytextarea'
+	        selector: '#mytextarea',
+	        force_br_newlines : false, 
+	        force_p_newlines : false, 
+	        forced_root_block : '',
 	      });
     	</script>
 		<title><?= $title ?></title>		
