@@ -59,10 +59,10 @@
 				            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Livres</a>
 					            	<div class="dropdown-menu">
 					            		<a class="dropdown-item" href="index.php?action=tous_les_livres">Tous les livres</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_economie">Economie</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_economie">Economie/Politique</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_essais">Essais</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_histoire">Histoire</a>
-								      	<a class="dropdown-item" href="index.php?action=livres_nature">Nature</a>
+								      	<a class="dropdown-item" href="index.php?action=livres_nature">Science/Nature</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_révélations">Révélations</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sante">Santé</a>
 								      	<a class="dropdown-item" href="index.php?action=livres_sciences_interdites">Sciences interdites</a>

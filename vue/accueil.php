@@ -1,4 +1,4 @@
-<?php $title = 'Regarde et pense'; 
+<?php $title = 'La grande évasion'; 
 $css = 'public/style.css';?>
 
 <?php ob_start();?>

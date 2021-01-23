@@ -167,14 +167,14 @@ if (isset($_GET['action'])) {
             break;
 
         case 'livres_economie':
-            $sous_categorie = "Economie";
+            $sous_categorie = "Economie/Politique";
             $categorie = "Livres";
             $frontController = new FrontController();
             $frontController->posts($sous_categorie, $categorie);
             break;
 
         case 'livres_nature':
-            $sous_categorie = "Nature";
+            $sous_categorie = "Science/Nature";
             $categorie = "Livres";
             $frontController = new FrontController();
             $frontController->posts($sous_categorie, $categorie);
