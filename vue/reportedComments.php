@@ -23,7 +23,7 @@ $css = 'public/style9.css';
 					?>			
 						<tr>
 							<td><?php echo htmlspecialchars($donnees['auteur']); ?></td>
-							<td id="commentaire"><?php echo htmlspecialchars($donnees['commentaire']); ?></td>
+							<td class="commentaire"><?php echo htmlspecialchars($donnees['commentaire']); ?></td>
 							<td><a class="btn btn-primary" href="<?php echo "index.php?action=suppCom&id=".$donnees['id']?>">Supprimer</a></td>
 							<td><a class="btn btn-primary" href="<?php echo "index.php?action=letCom&id=".$donnees['id']?>">Laisser</a></td>
 						</tr>

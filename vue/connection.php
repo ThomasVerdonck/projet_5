@@ -20,7 +20,7 @@ $css = 'public/style3.css';
             </div>
             <div class="labels">
                 <label for="password">Mot de passe</label><br />
-                <input type="password" class="password" name="password" required></input>
+                <input type="password" id="password" name="password" required/>
             </div>
             <div class="labels">
                 <label for="remember">Se souvenir de moi</label>

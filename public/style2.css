@@ -51,7 +51,7 @@ h2{
   background-color: #343a40;
 }
 
-#contenu{
+.card-text{
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;

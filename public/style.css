@@ -38,7 +38,7 @@ h2{
   height: 550px;
 }
 
-#texte{
+.carousel-caption{
   bottom: 0;
   background-color: rgba(0,0,0,0.2);
   height: 130px;

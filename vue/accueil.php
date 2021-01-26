@@ -24,7 +24,7 @@ $css = 'public/style.css';?>
 						<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>">
 							<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block w-100" alt="<?php echo $donnees['image']; ?>">
 						</a>
-					    <div id="texte" class="carousel-caption d-none d-md-block">
+					    <div class="carousel-caption d-none d-md-block">
 					    	<h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
 						</div>
 					</div>
@@ -36,7 +36,7 @@ $css = 'public/style.css';?>
 						<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>">
 							<img src="public/images/<?php echo $donnees['image']; ?>" class="d-block w-100" alt="<?php echo $donnees['image']; ?>">
 						</a>
-						<div id="texte" class="carousel-caption d-none d-md-block">
+						<div class="carousel-caption d-none d-md-block">
 					    	<h4 class="card-title"><?php echo nl2br(htmlspecialchars($donnees['titre'])); ?></h4>
 						</div>
 					</div>
@@ -60,7 +60,7 @@ $css = 'public/style.css';?>
 </div>
 
 <div id="presentation">
-  	<p id="texte_accueil"><?php echo htmlspecialchars_decode(stripslashes($presentationText['texte'])); ?></p>
+  	<p id="texte_accueil"><?php echo htmlspecialchars_decode(stripslashes($presentationText['texte'])); ?>
 </div>
 
 <?php $content = ob_get_clean(); ?>

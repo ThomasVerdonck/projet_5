@@ -267,7 +267,6 @@ if (isset($_GET['action'])) {
         case 'suppPost':
             if(isset($_SESSION['pseudo'])){
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    //alert('Etes-vous sûr de vouloir supprimer ce post?');
                     $id = $_GET['id'];
                     $backController = new BackController();
                     $backController->suppPost($id);

@@ -19,7 +19,7 @@ $css = 'public/style8.css'; ?>
                     }?>
                     <div id="post" class="col-12">
                         <div id="div_img_post">
-                            <img id="img_post" class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" >
+                            <img id="img_post" class="card-img-top col-3" src="public/images/<?php echo $post['image']; ?>" alt="<?php echo $post['image']; ?>">
                         </div>
                         <div>
                             <p id="content"><?php echo htmlspecialchars_decode(stripslashes($post['descriptif']));?></p>
@@ -28,7 +28,7 @@ $css = 'public/style8.css'; ?>
                 </div>
             </div>      
 
-            <section id="comments" class="col-12">
+            <div id="comments" class="col-12">
                 <?php
                 if ($post['nom_categorie'] === "Films") {?>
                     <p>Avez-vous vu ce film?</p>
@@ -49,9 +49,9 @@ $css = 'public/style8.css'; ?>
                     <p>Faites part de votre avis en laissant un commentaire.</p>
                 <?php
                 }?>
-            </section>
+            </div>
 
-            <section>            
+            <div id="formulaire_comment">            
                 <?php while ($comment = $comments->fetch()){                
                 ?>
                     <div class="col-12">                        
@@ -66,8 +66,7 @@ $css = 'public/style8.css'; ?>
                             }
                             else{
                         ?>
-                        <button type="button" class="btn btn-danger" name="signal_comment"><a href="index.php?action=reportedComment&id=<?php echo $comment['id'] ?>&postId=<?php echo $post['id'] ?>">Signaler ce commentaire</a>
-                        </button>
+                        <a class="btn btn-danger" href="index.php?action=reportedComment&id=<?php echo $comment['id'] ?>&postId=<?php echo $post['id'] ?>">Signaler ce commentaire</a>
                         <?php
                             }
                         ?>                        
@@ -77,28 +76,28 @@ $css = 'public/style8.css'; ?>
                 } 
                 $comments->closeCursor();// Fin de la boucle des commentaires
                 ?>            
-            </section>
+            </div>
 
             <!-- Formulaire pour ajouter un commentaire-->
-            <section id="add_comment" class="col-12">
+            <div id="add_comment" class="col-12">
                 <div class="col-12">
                     <h2>Ajouter un commentaire</h2>
                     <p id="form_title">*Ces deux champs sont obligatoires</p>    
                     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                         <div class="form-group">
                             <label for="author">Pseudo*</label><br />
-                            <input type="text" class="form-control" name="author" required/>
+                            <input type="text" class="form-control" name="author" id="author" required/>
                         </div>
                         <div class="form-group">
                             <label for="comment">Commentaire*</label><br />
-                            <textarea class="form-control" name="comment"></textarea>
+                            <textarea class="form-control" name="comment" id="comment"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" id="submit" value="Envoyer"/>
                         </div>
                     </form> 
                 </div>  
-            </section>
+            </div>
         </div>
     </div>
 </div>
